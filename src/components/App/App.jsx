@@ -1,10 +1,14 @@
 import "./App.css";
 
+import Header from "../Header/Header";
+
 function App() {
   return (
     <>
-      <div>
-        <h1>NEWS EXPLORER APP</h1>
+      <div className="page">
+        <div className="page__content">
+          <Header></Header>
+        </div>
       </div>
     </>
   );
