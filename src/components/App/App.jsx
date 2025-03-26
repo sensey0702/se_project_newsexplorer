@@ -1,6 +1,7 @@
 import "./App.css";
 
 import Header from "../Header/Header";
+import SearchForm from "../SearchForm/SearchForm";
 
 function App() {
   return (

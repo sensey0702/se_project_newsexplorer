@@ -1,38 +1,24 @@
 .header {
   font-family: Inter;
   font-weight: 400;
-  background-color: black;
+  background: url(../../assets/SearchFormBackGroundImage.png) center/cover
+    no-repeat;
+  max-width: 1440px;
+  height: 500px;
+}
+
+.header__wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 80px;
   align-items: center;
+  border-bottom: 1px solid white;
+  height: 80px;
   padding-left: 104px;
   padding-right: 104px;
 }
 
 .header__logo {
   height: 24px;
-  width: 200px;
-}
-
-.header__button-wrapper {
-  display: flex;
-  gap: 76px;
-}
-
-.header__button {
-  height: 24px;
-  background-color: transparent;
-  color: white;
-}
-
-.header__button--home {
-  border: none;
-}
-
-.header__button--sign-in {
-  border: 1px solid;
-  border-radius: 100px;
-  border-color: white;
+  max-width: 200px;
 }

@@ -1,0 +1,27 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 42px;
+}
+
+.navigation__button {
+  height: 24px;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 500;
+  size: 18px;
+  line-height: 24px;
+}
+
+.navigation__button--home {
+  border: none;
+}
+
+.navigation__button--sign-in {
+  border: 1px solid;
+  border-radius: 100px;
+  border-color: rgba(255, 255, 255, 1);
+  height: 48px;
+  width: 176px;
+}
