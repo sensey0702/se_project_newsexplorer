@@ -1,0 +1,53 @@
+.search {
+  color: rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search__title {
+  font-family: "Roboto Slab";
+  font-size: 60px;
+  line-height: 64px;
+  font-weight: 400;
+  width: 608px;
+  height: 128px;
+  margin-top: 80px;
+  margin-bottom: 0px;
+}
+
+.search__description {
+  font-family: "Roboto";
+  width: 608px;
+  height: 24px;
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: 32px;
+}
+
+.search__form {
+  width: 608px;
+  height: 64px;
+  padding: 0;
+}
+
+.search__label {
+  position: relative;
+}
+
+.search__input {
+  width: 584px;
+  height: 64px;
+  border-radius: 100px;
+  border: 1px solid rgba(209, 210, 214, 1);
+  outline: none;
+  padding: 0 0 0 24px;
+}
+
+.search__button {
+  color: white;
+  background-color: blue;
+  position: absolute;
+  right: 20px;
+  top: 0px;
+}
