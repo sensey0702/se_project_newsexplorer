@@ -17,7 +17,7 @@ function SearchForm() {
             placeholder="Enter topic"
           />
           <button type="submit" className="search__button">
-            SEARCH
+            Search
           </button>
         </label>
       </form>
