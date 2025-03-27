@@ -1,7 +1,7 @@
 import "./App.css";
 
 import Header from "../Header/Header";
-import SearchForm from "../SearchForm/SearchForm";
+import Main from "../Main/Main";
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
       <div className="page">
         <div className="page__content">
           <Header></Header>
+          <Main></Main>
         </div>
       </div>
     </>
