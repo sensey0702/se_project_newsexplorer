@@ -1,4 +1,4 @@
-articles: [
+export const articles = [
   {
     source: {
       id: "techcrunch",
