@@ -1,6 +1,5 @@
 import "./Main.css";
 
-import NewsCard from "../NewsCard/NewsCard";
 import About from "../About/About";
 import NewsCardList from "../NewsCardList/NewsCardList";
 

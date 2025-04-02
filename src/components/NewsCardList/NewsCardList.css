@@ -1,0 +1,9 @@
+.news-card__list {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 64px 104px;
+  justify-content: center;
+  margin: 0px;
+  background-color: rgba(245, 246, 247, 1);
+}
