@@ -3,7 +3,7 @@ import NewsExplorerLogo from "../../assets/NewsExplorerLogo.svg";
 import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
 
-function Header() {
+function Header({ handleLoginClick }) {
   return (
     <header className="header">
       <div className="header__wrapper">
@@ -12,7 +12,7 @@ function Header() {
           alt="News Explorer Logo"
           className="header__logo"
         />
-        <Navigation></Navigation>
+        <Navigation handleLoginClick={handleLoginClick}></Navigation>
       </div>
       <SearchForm></SearchForm>
     </header>

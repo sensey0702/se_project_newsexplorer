@@ -1,4 +1,16 @@
-function ModalWithForm() {
+import "./ModalWithForm.css";
+
+function ModalWithForm({
+  children,
+  buttonText,
+  title,
+  isOpen,
+  onClose,
+  name,
+  onSubmit,
+  handleOrButton,
+  orButtonText,
+}) {
   return (
     <div
       className={`modal modal__type_${name} ${isOpen ? "modal_opened" : ""}`}
@@ -23,9 +35,9 @@ function ModalWithForm() {
               <button
                 onClick={handleOrButton}
                 type="button"
-                className="modal__button_type_or"
+                className="modal__or-button"
               >
-                {orButtonText}
+                or <span className="modal__or-button-text">{orButtonText}</span>
               </button>
             )}
           </div>

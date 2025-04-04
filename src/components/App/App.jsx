@@ -1,16 +1,42 @@
+import { useState, useEffect } from "react";
+
 import "./App.css";
 
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
+import LoginModal from "../LoginModal/LoginModal";
 
 function App() {
+  const [activeModal, setActiveModal] = useState("");
+  const closeActiveModal = () => {
+    setActiveModal("");
+  };
+  const handleLoginClick = () => {
+    setActiveModal("login");
+  };
+
+  const handleToggleModalChange = () => {
+    if (activeModal === "register") {
+      closeActiveModal();
+      setActiveModal("login");
+    }
+    // if (activeModal === "login") {
+    //   closeActiveModal();
+    //   setActiveModal("register");
+    // }
+  };
   return (
     <>
       <div className="page">
         <div className="page__content">
-          <Header></Header>
+          <Header handleLoginClick={handleLoginClick}></Header>
           <Main></Main>
+          <LoginModal
+            activeModal={activeModal}
+            onClose={closeActiveModal}
+            handleOrButton={handleToggleModalChange}
+          />
           <Footer></Footer>
         </div>
       </div>
