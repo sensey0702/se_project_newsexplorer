@@ -37,6 +37,7 @@ function App() {
             onClose={closeActiveModal}
             handleOrButton={handleToggleModalChange}
           />
+
           <Footer></Footer>
         </div>
       </div>
