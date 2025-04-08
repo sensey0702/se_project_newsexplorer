@@ -6,9 +6,10 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
+import LoginSuccessModal from "../LoginSuccessModal/LoginSucessModal";
 
 function App() {
-  const [activeModal, setActiveModal] = useState("");
+  const [activeModal, setActiveModal] = useState("loginSuccess");
   const closeActiveModal = () => {
     setActiveModal("");
   };
@@ -26,6 +27,12 @@ function App() {
     //   setActiveModal("register");
     // }
   };
+
+  const handleSignInButtonClick = () => {
+    closeActiveModal();
+    setActiveModal("login");
+  };
+
   return (
     <>
       <div className="page">
@@ -36,6 +43,11 @@ function App() {
             activeModal={activeModal}
             onClose={closeActiveModal}
             handleOrButton={handleToggleModalChange}
+          />
+          <LoginSuccessModal
+            activeModal={activeModal}
+            onClose={closeActiveModal}
+            handleSignInButton={handleSignInButtonClick}
           />
 
           <Footer></Footer>

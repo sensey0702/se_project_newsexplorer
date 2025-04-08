@@ -10,6 +10,8 @@ function ModalWithForm({
   onSubmit,
   handleOrButton,
   orButtonText,
+  handleSignInButton,
+  signInButtonText,
 }) {
   return (
     <div
@@ -22,26 +24,38 @@ function ModalWithForm({
           className={`modal__close modal__close_content_type_${name}`}
           onClick={onClose}
         />
-        <form onSubmit={onSubmit} className="modal__form">
-          {children}
-          <div className="modal__button-wrapper">
-            <button
-              className={`modal__submit modal__submit_content_type_${name}`}
-              type="submit"
-            >
-              {buttonText}
-            </button>
-            {handleOrButton && (
+        {buttonText && (
+          <form onSubmit={onSubmit} className="modal__form">
+            {children}
+            <div className="modal__button-wrapper">
               <button
-                onClick={handleOrButton}
-                type="button"
-                className="modal__or-button"
+                className={`modal__submit modal__submit_content_type_${name}`}
+                type="submit"
               >
-                or <span className="modal__or-button-text">{orButtonText}</span>
+                {buttonText}
               </button>
-            )}
-          </div>
-        </form>
+              {handleOrButton && (
+                <button
+                  onClick={handleOrButton}
+                  type="button"
+                  className="modal__or-button"
+                >
+                  or{" "}
+                  <span className="modal__or-button-text">{orButtonText}</span>
+                </button>
+              )}
+            </div>
+          </form>
+        )}
+        {handleSignInButton && (
+          <button
+            onClick={handleSignInButton}
+            type="button"
+            className="modal__sign-in-button"
+          >
+            {signInButtonText}
+          </button>
+        )}
       </div>
     </div>
   );

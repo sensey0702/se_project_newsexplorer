@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #0000004d;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,11 +32,15 @@
   padding: 34px 36px 28px;
 }
 
+.modal__content_type_loginSuccess {
+  padding: 43px 0px 51px 36px;
+}
+
 .modal__title {
   margin: 0 0 22px;
   font-size: 24px;
-  width: 80px;
   font-weight: 900;
+  line-height: 1.2;
 }
 
 .modal__close {
@@ -146,4 +150,12 @@
 
 .modal__or-button-text {
   color: rgba(47, 113, 229, 1);
+}
+
+.modal__sign-in-button {
+  border: none;
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(47, 113, 229, 1);
+  font-size: 18px;
+  line-height: 100%;
 }
