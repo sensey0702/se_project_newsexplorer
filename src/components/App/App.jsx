@@ -7,9 +7,10 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import LoginSuccessModal from "../LoginSuccessModal/LoginSucessModal";
+import RegisterModal from "../RegisterModal/RegisterModal";
 
 function App() {
-  const [activeModal, setActiveModal] = useState("loginSuccess");
+  const [activeModal, setActiveModal] = useState("register");
   const closeActiveModal = () => {
     setActiveModal("");
   };
@@ -22,10 +23,10 @@ function App() {
       closeActiveModal();
       setActiveModal("login");
     }
-    // if (activeModal === "login") {
-    //   closeActiveModal();
-    //   setActiveModal("register");
-    // }
+    if (activeModal === "login") {
+      closeActiveModal();
+      setActiveModal("register");
+    }
   };
 
   const handleSignInButtonClick = () => {
@@ -48,6 +49,11 @@ function App() {
             activeModal={activeModal}
             onClose={closeActiveModal}
             handleSignInButton={handleSignInButtonClick}
+          />
+          <RegisterModal
+            activeModal={activeModal}
+            onClose={closeActiveModal}
+            handleOrButton={handleToggleModalChange}
           />
 
           <Footer></Footer>
