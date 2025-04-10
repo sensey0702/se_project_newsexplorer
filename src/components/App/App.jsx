@@ -10,7 +10,7 @@ import LoginSuccessModal from "../LoginSuccessModal/LoginSucessModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 
 function App() {
-  const [activeModal, setActiveModal] = useState("register");
+  const [activeModal, setActiveModal] = useState("");
   const closeActiveModal = () => {
     setActiveModal("");
   };
