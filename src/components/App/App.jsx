@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
 
@@ -63,7 +64,9 @@ function App() {
       <div className="page">
         <div className="page__content">
           <Header handleLoginClick={handleLoginClick}></Header>
-          <Main></Main>
+          <Routes>
+            <Route path="/" element={<Main />} />
+          </Routes>
           <LoginModal
             activeModal={activeModal}
             onClose={closeActiveModal}

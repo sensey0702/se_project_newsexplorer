@@ -5,10 +5,19 @@
   gap: 42px;
 }
 
-.navigation__button {
+.navigation__main .navigation__button {
   height: 24px;
   background-color: transparent;
   color: rgba(255, 255, 255, 1);
+  font-weight: 500;
+  size: 18px;
+  line-height: 24px;
+}
+
+.navigation__saved-news .navigation__button {
+  height: 24px;
+  background-color: transparent;
+  color: black;
   font-weight: 500;
   size: 18px;
   line-height: 24px;
@@ -18,10 +27,18 @@
   border: none;
 }
 
-.navigation__button--sign-in {
+.navigation__main .navigation__button--sign-in {
   border: 1px solid;
   border-radius: 100px;
   border-color: rgba(255, 255, 255, 1);
+  height: 48px;
+  width: 176px;
+}
+
+.navigation__saved-news .navigation__button--sign-in {
+  border: 1px solid;
+  border-radius: 100px;
+  border-color: black;
   height: 48px;
   width: 176px;
 }
