@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 import "./Header.css";
 import NewsExplorerLogoWhite from "../../assets/NewsExplorerLogo-white.svg";
@@ -6,7 +6,7 @@ import NewsExplorerLogoBlack from "../../assets/NewsExplorerLogo-black.svg";
 import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
 
-function Header({ handleLoginClick }) {
+function Header({ handleLoginClick, isLoggedIn }) {
   const location = useLocation();
 
   const mainPage = location.pathname === "/";
@@ -14,12 +14,17 @@ function Header({ handleLoginClick }) {
   return (
     <header className={mainPage ? "header__main" : "header__saved-news"}>
       <div className="header__wrapper">
-        <img
-          src={mainPage ? NewsExplorerLogoWhite : NewsExplorerLogoBlack}
-          alt="News Explorer Logo"
-          className="header__logo"
+        <Link to="/">
+          <img
+            src={mainPage ? NewsExplorerLogoWhite : NewsExplorerLogoBlack}
+            alt="News Explorer Logo"
+            className="header__logo"
+          />
+        </Link>
+        <Navigation
+          handleLoginClick={handleLoginClick}
+          isLoggedIn={isLoggedIn}
         />
-        <Navigation handleLoginClick={handleLoginClick} />
       </div>
       {mainPage && <SearchForm />}
     </header>

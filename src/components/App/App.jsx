@@ -5,6 +5,7 @@ import "./App.css";
 
 import Header from "../Header/Header";
 import Main from "../Main/Main";
+import SavedArticles from "../SavedArticles/SavedArticles";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import LoginSuccessModal from "../LoginSuccessModal/LoginSucessModal";
@@ -12,6 +13,8 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const closeActiveModal = () => {
     setActiveModal("");
   };
@@ -33,6 +36,10 @@ function App() {
   const handleSignInButtonClick = () => {
     closeActiveModal();
     setActiveModal("login");
+  };
+
+  const handleExampleLogin = () => {
+    setIsLoggedIn(true);
   };
 
   useEffect(() => {
@@ -63,9 +70,13 @@ function App() {
     <>
       <div className="page">
         <div className="page__content">
-          <Header handleLoginClick={handleLoginClick}></Header>
+          <Header
+            handleLoginClick={handleLoginClick}
+            isLoggedIn={handleExampleLogin}
+          ></Header>
           <Routes>
             <Route path="/" element={<Main />} />
+            <Route path="saved-news" element={<SavedArticles />} />
           </Routes>
           <LoginModal
             activeModal={activeModal}
