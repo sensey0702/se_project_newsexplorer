@@ -168,3 +168,5 @@ export const articles = [
       "Close to a decade ago, brothers Aviv and Matteo Shapira co-founded Replay, a company that created a video format for 360-degree replays — the sorts of replays that have become part and parcel of majo… [+5398 chars]",
   },
 ];
+
+export const keywords = ["Nature", "Yellowstone", "Hiking", "Parks"];
