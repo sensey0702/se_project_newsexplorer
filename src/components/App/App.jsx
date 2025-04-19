@@ -5,7 +5,7 @@ import "./App.css";
 
 import Header from "../Header/Header";
 import Main from "../Main/Main";
-import SavedArticles from "../SavedArticles/SavedArticles";
+import SavedNews from "../SavedNews/SavedNews";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import LoginSuccessModal from "../LoginSuccessModal/LoginSucessModal";
@@ -76,7 +76,7 @@ function App() {
           ></Header>
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="saved-news" element={<SavedArticles />} />
+            <Route path="saved-news" element={<SavedNews />} />
           </Routes>
           <LoginModal
             activeModal={activeModal}
