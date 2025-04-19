@@ -1,5 +1,7 @@
 import "./SavedNews.css";
 
+import NewsCardList from "../NewsCardList/NewsCardList";
+
 import { keywords } from "../../utils/constants";
 import { articles } from "../../utils/constants";
 
@@ -29,6 +31,7 @@ function SavedNews() {
           {formatKeywords(keywords)}
         </span>
       </p>
+      <NewsCardList />
     </section>
   );
 }
