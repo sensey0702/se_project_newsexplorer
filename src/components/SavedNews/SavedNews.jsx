@@ -1,4 +1,7 @@
+import "./SavedNews.css";
+
 import { keywords } from "../../utils/constants";
+import { articles } from "../../utils/constants";
 
 function SavedNews() {
   const formatKeywords = (keywords) => {
@@ -18,7 +21,7 @@ function SavedNews() {
     <section className="saved-news">
       <h2 className="saved-news__heading">Saved articles</h2>
       <p className="saved-news__number-of-articles">
-        Elise, you have {keywords.length} saved articles
+        Elise, you have {articles.length} saved articles
       </p>
       <p className="saved-news__keywords-title">
         By keywords:{" "}
