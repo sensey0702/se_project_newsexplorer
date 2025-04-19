@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "./Footer.css";
 
 import facebook from "../../assets/facebookLogo.svg";
@@ -12,10 +14,39 @@ function Footer() {
         &copy; {currentYear} Samantha Ensey, Powered by News API{" "}
       </p>
       <div className="footer__wrapper">
-        <p className="footer__home-link">Home</p>
-        <p className="footer__tripleten-link">TripleTen</p>
-        <img src={github} alt="github logo" className="footer__github" />
-        <img src={facebook} alt="facebook logo" className="footer__facebook" />
+        <Link to="/" className="footer__home-link">
+          Home
+        </Link>
+
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://tripleten.com/"
+          className="footer__tripleten-link"
+        >
+          TripleTen
+        </a>
+
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer__github-link"
+          href="https://github.com/sensey0702"
+        >
+          <img src={github} alt="github logo" className="footer__github-logo" />
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer__facebook-link"
+          href="https://www.facebook.com/samantha.j.norman.7"
+        >
+          <img
+            src={facebook}
+            alt="facebook logo"
+            className="footer__facebook-logo"
+          />
+        </a>
       </div>
     </footer>
   );
