@@ -30,3 +30,11 @@
   height: 24px;
   max-width: 200px;
 }
+
+@media screen and (min-width: 320px) and (max-width: 1014px) {
+  .header__wrapper {
+    height: 60px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
