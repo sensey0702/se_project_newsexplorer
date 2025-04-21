@@ -14,7 +14,7 @@
   background-color: transparent;
   color: rgba(255, 255, 255, 1);
   font-weight: 500;
-  size: 18px;
+  font-size: 18px;
   line-height: 24px;
 }
 
@@ -23,7 +23,7 @@
   background-color: transparent;
   color: black;
   font-weight: 500;
-  size: 18px;
+  font-size: 18px;
   line-height: 24px;
 }
 
@@ -33,12 +33,13 @@
 
 .navigation__logged-in-buttons {
   display: flex;
-  gap: 64px;
+  gap: 32px;
   align-items: center;
 }
 
 .navigation__button--saved-articles {
   border: none;
+  width: 178px;
 }
 
 .navigation__main .navigation__button--sign-out {
@@ -94,12 +95,12 @@
   }
   .navigation__main .navigation__button {
     height: 24px;
-    size: 16px;
+    font-size: 16px;
   }
 
   .navigation__saved-news .navigation__button {
     height: 24px;
-    size: 16px;
+    font-size: 16px;
   }
 
   .navigation__main .navigation__button--sign-in {
@@ -110,5 +111,34 @@
   .navigation__saved-news .navigation__button--sign-in {
     height: 40px;
     width: 152px;
+  }
+  .navigation__logged-in-buttons {
+    gap: 16px;
+  }
+
+  .navigation__button--saved-articles {
+    border: none;
+    width: 160px;
+  }
+
+  .navigation__main .navigation__button--sign-out {
+    height: 40px;
+    max-width: 100px;
+    padding-left: 12px;
+    padding-right: 12px;
+    gap: 13px;
+  }
+
+  .navigation__saved-news .navigation__button--sign-out {
+    height: 40px;
+    max-width: 100px;
+    padding-left: 12px;
+    padding-right: 12px;
+    gap: 13px;
+  }
+
+  .navigation__sign-out-img {
+    width: 24px;
+    height: 24px;
   }
 }
