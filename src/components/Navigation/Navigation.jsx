@@ -20,7 +20,11 @@ function Navigation({ handleLoginClick, isLoggedIn }) {
       }
     >
       <Link to="/">
-        <button className="navigation__button navigation__button--home">
+        <button
+          className={`navigation__button navigation__button--home ${
+            mainPage ? "navigation__button--active" : ""
+          }`}
+        >
           Home
         </button>
       </Link>
