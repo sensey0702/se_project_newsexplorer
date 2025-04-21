@@ -13,7 +13,7 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState();
 
   const closeActiveModal = () => {
     setActiveModal("");
@@ -38,8 +38,14 @@ function App() {
     setActiveModal("login");
   };
 
-  const handleExampleLogin = () => {
+  const handleExampleLogin = (e) => {
+    e.preventDefault();
     setIsLoggedIn(true);
+    closeActiveModal();
+  };
+
+  const handleExampleLogout = () => {
+    setIsLoggedIn(false);
   };
 
   useEffect(() => {
@@ -72,7 +78,8 @@ function App() {
         <div className="page__content">
           <Header
             handleLoginClick={handleLoginClick}
-            isLoggedIn={handleExampleLogin}
+            isLoggedIn={isLoggedIn}
+            handleLogoutClick={handleExampleLogout}
           ></Header>
           <Routes>
             <Route path="/" element={<Main />} />
@@ -82,6 +89,7 @@ function App() {
             activeModal={activeModal}
             onClose={closeActiveModal}
             handleOrButton={handleToggleModalChange}
+            handleLogin={handleExampleLogin}
           />
           <LoginSuccessModal
             activeModal={activeModal}

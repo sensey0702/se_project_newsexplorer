@@ -29,6 +29,7 @@ function ModalWithForm({
             {children}
             <div className="modal__button-wrapper">
               <button
+                onSubmit={onSubmit}
                 className={`modal__submit modal__submit_content_type_${name}`}
                 type="submit"
               >

@@ -6,7 +6,7 @@ import NewsExplorerLogoBlack from "../../assets/NewsExplorerLogo-black.svg";
 import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
 
-function Header({ handleLoginClick, isLoggedIn }) {
+function Header({ handleLoginClick, isLoggedIn, handleLogoutClick }) {
   const location = useLocation();
 
   const mainPage = location.pathname === "/";
@@ -24,6 +24,7 @@ function Header({ handleLoginClick, isLoggedIn }) {
         <Navigation
           handleLoginClick={handleLoginClick}
           isLoggedIn={isLoggedIn}
+          handleLogoutClick={handleLogoutClick}
         />
       </div>
       {mainPage && <SearchForm />}

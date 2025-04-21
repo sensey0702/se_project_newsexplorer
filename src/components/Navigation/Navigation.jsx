@@ -5,7 +5,7 @@ import "./Navigation.css";
 import signoutIconWhite from "../../assets/signout-icon-white.svg";
 import signoutIconBlack from "../../assets/signout-icon-black.svg";
 
-function Navigation({ handleLoginClick, isLoggedIn }) {
+function Navigation({ handleLoginClick, isLoggedIn, handleLogoutClick }) {
   const location = useLocation();
 
   const mainPage = location.pathname === "/";
@@ -36,7 +36,10 @@ function Navigation({ handleLoginClick, isLoggedIn }) {
               Saved articles
             </button>
           </Link>
-          <button className="navigation__button navigation__button--sign-out">
+          <button
+            onClick={handleLogoutClick}
+            className="navigation__button navigation__button--sign-out"
+          >
             Elise
             <img
               className="navigation__sign-out-img"
