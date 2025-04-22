@@ -7,3 +7,10 @@
   margin: 0px;
   background-color: rgba(245, 246, 247, 1);
 }
+
+@media screen and (min-width: 320px) and (max-width: 1014px) {
+  .news-card__list {
+    gap: 8px;
+    padding: 32px 40px;
+  }
+}
