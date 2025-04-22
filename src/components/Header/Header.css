@@ -4,7 +4,7 @@
   background: url(../../assets/SearchFormBackGroundImage.png) center/cover
     no-repeat;
   max-width: 1440px;
-  height: 500px;
+  height: 576px;
 }
 
 .header__saved-news {
@@ -32,6 +32,9 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 1014px) {
+  .header__main {
+    height: 400px;
+  }
   .header__wrapper {
     height: 60px;
     padding-left: 40px;
