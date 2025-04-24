@@ -50,3 +50,22 @@
   padding: 0;
   margin: 0;
 }
+
+@media screen and (min-width: 320px) and (max-width: 1014px) {
+  .footer {
+    height: 64px;
+    padding-left: 40px;
+    padding-right: 41px;
+  }
+
+  .footer__github-logo {
+    height: 24px;
+    width: 24px;
+    padding: 0 25px 0 0;
+  }
+
+  .footer__facebook-logo {
+    height: 24px;
+    width: 24px;
+  }
+}
