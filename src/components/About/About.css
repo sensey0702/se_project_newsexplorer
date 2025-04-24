@@ -37,7 +37,6 @@
   font-size: 18px;
   line-height: 24px;
   margin: 0;
-  text-wrap: balance;
 }
 
 @media screen and (min-width: 320px) and (max-width: 1028px) {
