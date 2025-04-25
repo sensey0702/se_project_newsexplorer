@@ -35,8 +35,12 @@
   .header__main {
     height: 400px;
   }
+  .header__saved-news {
+    height: 66px;
+  }
+
   .header__wrapper {
-    height: 60px;
+    height: 66px;
     padding-left: 40px;
     padding-right: 40px;
   }
