@@ -11,7 +11,7 @@ function Footer() {
     <footer className="footer">
       <p className="footer__copyright">
         {" "}
-        &copy; {currentYear} Samantha Ensey, Powered by News API{" "}
+        &copy; {currentYear} Sam Ensey, Powered by News API{" "}
       </p>
       <div className="footer__wrapper">
         <div className="footer__wrapper--internal-links">
