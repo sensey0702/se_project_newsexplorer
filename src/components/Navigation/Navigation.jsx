@@ -4,13 +4,21 @@ import "./Navigation.css";
 
 import signoutIconWhite from "../../assets/signout-icon-white.svg";
 import signoutIconBlack from "../../assets/signout-icon-black.svg";
+import hamburgerMenuIcon from "../../assets/hamburger-menu-icon.svg";
 
-function Navigation({ handleLoginClick, isLoggedIn, handleLogoutClick }) {
+function Navigation({
+  handleLoginClick,
+  isLoggedIn,
+  handleLogoutClick,
+  handleNavMenuClick,
+  isMenuOpen,
+}) {
   const location = useLocation();
 
   const mainPage = location.pathname === "/";
 
   const savedNews = location.pathname === "/saved-news";
+
   return (
     <section
       className={
@@ -19,6 +27,16 @@ function Navigation({ handleLoginClick, isLoggedIn, handleLogoutClick }) {
           : "navigation navigation__saved-news"
       }
     >
+      <div className="navigation__mobile-view">
+        {" "}
+        <img
+          onClick={handleNavMenuClick}
+          src={hamburgerMenuIcon}
+          alt="menu icon"
+        />
+        {/* conditionally render nav menu based on isMenuOpen  */}
+      </div>
+
       <Link to="/">
         <button
           className={`navigation__button navigation__button--home ${

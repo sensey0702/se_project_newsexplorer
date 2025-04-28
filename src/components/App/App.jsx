@@ -14,6 +14,7 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const closeActiveModal = () => {
     setActiveModal("");
@@ -48,6 +49,16 @@ function App() {
     setIsLoggedIn(false);
   };
 
+  const handleNavMenuClick = () => {
+    if (!isMenuOpen) {
+      setIsMenuOpen(true);
+      console.log("nav bar open");
+    } else {
+      setIsMenuOpen(false);
+      console.log("nav bar closed");
+    }
+  };
+
   useEffect(() => {
     if (!activeModal) return;
 
@@ -77,6 +88,8 @@ function App() {
       <div className="page">
         <div className="page__content">
           <Header
+            handleNavMenuClick={handleNavMenuClick}
+            isMenuOpen={isMenuOpen}
             handleLoginClick={handleLoginClick}
             isLoggedIn={isLoggedIn}
             handleLogoutClick={handleExampleLogout}

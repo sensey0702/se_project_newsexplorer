@@ -6,7 +6,13 @@ import NewsExplorerLogoBlack from "../../assets/NewsExplorerLogo-black.svg";
 import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
 
-function Header({ handleLoginClick, isLoggedIn, handleLogoutClick }) {
+function Header({
+  handleLoginClick,
+  isLoggedIn,
+  handleLogoutClick,
+  isMenuOpen,
+  handleNavMenuClick,
+}) {
   const location = useLocation();
 
   const mainPage = location.pathname === "/";
@@ -22,6 +28,8 @@ function Header({ handleLoginClick, isLoggedIn, handleLogoutClick }) {
           />
         </Link>
         <Navigation
+          isMenuOpen={isMenuOpen}
+          handleNavMenuClick={handleNavMenuClick}
           handleLoginClick={handleLoginClick}
           isLoggedIn={isLoggedIn}
           handleLogoutClick={handleLogoutClick}
