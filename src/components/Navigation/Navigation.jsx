@@ -5,6 +5,7 @@ import "./Navigation.css";
 import signoutIconWhite from "../../assets/signout-icon-white.svg";
 import signoutIconBlack from "../../assets/signout-icon-black.svg";
 import hamburgerMenuIcon from "../../assets/hamburger-menu-icon.svg";
+import closeButton from "../../assets/close-button.svg";
 
 function Navigation({
   handleLoginClick,
@@ -28,18 +29,42 @@ function Navigation({
       }
     >
       <div className="navigation__mobile-view">
-        {" "}
-        <img
-          onClick={handleNavMenuClick}
-          src={hamburgerMenuIcon}
-          alt="menu icon"
-        />
-        {/* conditionally render nav menu based on isMenuOpen  */}
+        {/* conditionally render nav menu based on isMenuOpen  */}{" "}
+        {isMenuOpen ? (
+          <div className="navigation__mobile-view--opened">
+            <Link to="/">
+              <button
+                className={`navigation__button navigation__button--home ${
+                  mainPage ? "navigation__button--active" : ""
+                }`}
+              >
+                Home
+              </button>
+            </Link>
+            <button
+              className="navigation__button navigation__button--sign-in"
+              onClick={handleLoginClick}
+            >
+              Sign In
+            </button>
+            <img
+              onClick={handleNavMenuClick}
+              src={closeButton}
+              alt="close button"
+            />{" "}
+          </div>
+        ) : (
+          <img
+            onClick={handleNavMenuClick}
+            src={hamburgerMenuIcon}
+            alt="menu icon"
+          />
+        )}
       </div>
 
       <Link to="/">
         <button
-          className={`navigation__button navigation__button--home ${
+          className={`navigation__not-mobile-view navigation__button navigation__button--home ${
             mainPage ? "navigation__button--active" : ""
           }`}
         >
@@ -68,7 +93,7 @@ function Navigation({
         </div>
       ) : (
         <button
-          className="navigation__button navigation__button--sign-in"
+          className="navigation__not-mobile-view navigation__button navigation__button--sign-in"
           onClick={handleLoginClick}
         >
           Sign In

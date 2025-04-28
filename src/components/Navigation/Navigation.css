@@ -31,6 +31,10 @@
   visibility: hidden;
 }
 
+.navigation__not-mobile-view {
+  visibility: visible;
+}
+
 .navigation__button--home {
   border: none;
 }
@@ -96,6 +100,9 @@
 @media screen and (min-width: 320px) and (max-width: 700px) {
   .navigation__mobile-view {
     visibility: visible;
+  }
+  .navigation__not-mobile-view {
+    visibility: hidden;
   }
 }
 
