@@ -13,6 +13,7 @@ function Navigation({
   handleLogoutClick,
   handleNavMenuClick,
   isMenuOpen,
+  closeNavBar,
 }) {
   const location = useLocation();
 
@@ -32,26 +33,28 @@ function Navigation({
         {/* conditionally render nav menu based on isMenuOpen  */}{" "}
         {isMenuOpen ? (
           <div className="navigation__mobile-view--opened">
-            <Link to="/">
-              <button
-                className={`navigation__button navigation__button--home ${
-                  mainPage ? "navigation__button--active" : ""
-                }`}
-              >
-                Home
-              </button>
-            </Link>
             <button
-              className="navigation__button navigation__button--sign-in"
-              onClick={handleLoginClick}
-            >
-              Sign In
-            </button>
-            <img
-              onClick={handleNavMenuClick}
-              src={closeButton}
-              alt="close button"
-            />{" "}
+              onClick={closeNavBar}
+              type="button"
+              className="navigation__button navigation__button--close"
+            ></button>
+            <div className="navigation__content">
+              <Link to="/">
+                <button
+                  className={`navigation__button navigation__button--home ${
+                    mainPage ? "navigation__button--active" : ""
+                  }`}
+                >
+                  Home
+                </button>
+              </Link>
+              <button
+                className="navigation__button navigation__button--sign-in"
+                onClick={handleLoginClick}
+              >
+                Sign In
+              </button>
+            </div>
           </div>
         ) : (
           <img

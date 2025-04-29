@@ -50,13 +50,13 @@ function App() {
   };
 
   const handleNavMenuClick = () => {
-    if (!isMenuOpen) {
-      setIsMenuOpen(true);
-      console.log("nav bar open");
-    } else {
-      setIsMenuOpen(false);
-      console.log("nav bar closed");
-    }
+    setIsMenuOpen(true);
+    console.log("nav bar open");
+  };
+
+  const handleNavCloseButton = () => {
+    setIsMenuOpen(false);
+    console.log("nav bar closed");
   };
 
   useEffect(() => {
@@ -93,6 +93,7 @@ function App() {
             handleLoginClick={handleLoginClick}
             isLoggedIn={isLoggedIn}
             handleLogoutClick={handleExampleLogout}
+            closeNavBar={handleNavCloseButton}
           ></Header>
           <Routes>
             <Route path="/" element={<Main />} />
