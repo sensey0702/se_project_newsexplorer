@@ -53,11 +53,6 @@
     padding: 16px;
     height: 24px;
     background-color: rgba(26, 27, 34, 1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
   }
 
   .header__logo {
