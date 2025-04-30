@@ -5,7 +5,6 @@ import "./Navigation.css";
 import signoutIconWhite from "../../assets/signout-icon-white.svg";
 import signoutIconBlack from "../../assets/signout-icon-black.svg";
 import hamburgerMenuIcon from "../../assets/hamburger-menu-icon.svg";
-import closeButton from "../../assets/close-button.svg";
 
 function Navigation({
   handleLoginClick,
@@ -32,7 +31,7 @@ function Navigation({
       <div className="navigation__mobile-view">
         {/* conditionally render nav menu based on isMenuOpen  */}{" "}
         {isMenuOpen ? (
-          <div className="navigation__mobile-view--opened">
+          <div className="navigation__mobile-view_open">
             <button
               onClick={closeNavBar}
               type="button"
@@ -40,11 +39,7 @@ function Navigation({
             ></button>
             <div className="navigation__content">
               <Link to="/">
-                <button
-                  className={`navigation__button navigation__button--home ${
-                    mainPage ? "navigation__button--active" : ""
-                  }`}
-                >
+                <button className="navigation__button navigation__button--home">
                   Home
                 </button>
               </Link>
