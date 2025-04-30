@@ -20,7 +20,13 @@ function Header({
 
   return (
     <header className={mainPage ? "header__main" : "header__saved-news"}>
-      <div className="header__wrapper">
+      <div
+        className={
+          isMenuOpen
+            ? "header__wrapper header__wrapper--nav-open"
+            : "header__wrapper"
+        }
+      >
         <Link to="/">
           <img
             src={mainPage ? NewsExplorerLogoWhite : NewsExplorerLogoBlack}
