@@ -92,6 +92,31 @@
     display: block;
   }
 
+  .navigation__menu {
+    position: fixed;
+    top: 57px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .navigation__menu-content {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(26, 27, 34, 1);
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    padding: 16px 16px 24px;
+    gap: 22px;
+  }
+
   .navigation__button--close {
     background-image: url(../../assets/close-button.svg);
     background-color: transparent;
@@ -103,19 +128,18 @@
     padding: 0px;
   }
 
-  .navigation__content {
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(26, 27, 34, 1);
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 57px;
-    padding: 16px 16px 24px;
-    gap: 22px;
+  .navigation__button--home {
+    width: 288px;
+    height: 56px;
+    text-align: start;
   }
 
-  .navigation__not-mobile-view {
+  .navigation__button--sign-in {
+    width: 288px;
+    height: 56px;
+  }
+
+  .navigation__desktop-view {
     display: none;
   }
 }

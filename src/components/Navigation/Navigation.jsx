@@ -31,13 +31,13 @@ function Navigation({
       <div className="navigation__mobile-view">
         {/* conditionally render nav menu based on isMenuOpen  */}{" "}
         {isMenuOpen ? (
-          <div className="navigation__mobile-view_open">
-            <button
-              onClick={closeNavBar}
-              type="button"
-              className="navigation__button navigation__button--close"
-            ></button>
-            <div className="navigation__content">
+          <div className="navigation__menu">
+            <div className="navigation__menu-content">
+              <button
+                onClick={closeNavBar}
+                type="button"
+                className="navigation__button navigation__button--close"
+              ></button>
               <Link to="/">
                 <button className="navigation__button navigation__button--home">
                   Home
@@ -53,6 +53,7 @@ function Navigation({
           </div>
         ) : (
           <img
+            className="navigation__mobile-view-icon"
             onClick={handleNavMenuClick}
             src={hamburgerMenuIcon}
             alt="menu icon"
@@ -62,7 +63,7 @@ function Navigation({
 
       <Link to="/">
         <button
-          className={`navigation__not-mobile-view navigation__button navigation__button--home ${
+          className={`navigation__desktop-view navigation__button navigation__button--home ${
             mainPage ? "navigation__button--active" : ""
           }`}
         >
@@ -91,7 +92,7 @@ function Navigation({
         </div>
       ) : (
         <button
-          className="navigation__not-mobile-view navigation__button navigation__button--sign-in"
+          className="navigation__desktop-view navigation__button navigation__button--sign-in"
           onClick={handleLoginClick}
         >
           Sign In
