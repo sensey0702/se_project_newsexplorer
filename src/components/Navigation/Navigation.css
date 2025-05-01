@@ -5,6 +5,10 @@
   gap: 42px;
 }
 
+.navigation__mobile-view {
+  display: none;
+}
+
 .navigation__button {
   padding: 0;
   height: 24px;
@@ -13,28 +17,11 @@
   font-size: 18px;
   line-height: 24px;
   text-decoration: none;
-}
-
-.navigation__main .navigation__button {
   color: rgba(255, 255, 255, 1);
-}
-
-.navigation__saved-news .navigation__button {
-  color: black;
-}
-
-.navigation__mobile-view {
-  display: none;
 }
 
 .navigation__button--home {
   border: none;
-}
-
-.navigation__logged-in-buttons {
-  display: flex;
-  gap: 32px;
-  align-items: center;
 }
 
 .navigation__button--saved-articles {
@@ -54,14 +41,6 @@
   gap: 19px;
 }
 
-.navigation__main .navigation__button--sign-out {
-  border-color: rgba(255, 255, 255, 1);
-}
-
-.navigation__saved-news .navigation__button--sign-out {
-  border-color: black;
-}
-
 .navigation__sign-out-img {
   width: 24px;
   height: 24px;
@@ -72,13 +51,20 @@
   border-radius: 100px;
   height: 48px;
   width: 176px;
-}
-
-.navigation__main .navigation__button--sign-in {
   border-color: rgba(255, 255, 255, 1);
 }
 
-.navigation__saved-news .navigation__button--sign-in {
+.navigation__button--dark {
+  color: black;
+}
+
+.navigation__logged-in-buttons {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.navigation__button--sign-in-dark {
   border-color: black;
 }
 
@@ -148,27 +134,14 @@
   .navigation {
     gap: 16px;
   }
-  .navigation__main .navigation__button {
+  .navigation__button {
     height: 24px;
     font-size: 16px;
   }
 
-  .navigation__saved-news .navigation__button {
-    height: 24px;
-    font-size: 16px;
-  }
-
-  .navigation__main .navigation__button--sign-in {
+  .navigation__button--sign-in {
     height: 40px;
     width: 152px;
-  }
-
-  .navigation__saved-news .navigation__button--sign-in {
-    height: 40px;
-    width: 152px;
-  }
-  .navigation__logged-in-buttons {
-    gap: 16px;
   }
 
   .navigation__button--saved-articles {
@@ -176,15 +149,7 @@
     width: 160px;
   }
 
-  .navigation__main .navigation__button--sign-out {
-    height: 40px;
-    max-width: 100px;
-    padding-left: 12px;
-    padding-right: 12px;
-    gap: 13px;
-  }
-
-  .navigation__saved-news .navigation__button--sign-out {
+  .navigation__button--sign-out {
     height: 40px;
     max-width: 100px;
     padding-left: 12px;
@@ -195,5 +160,9 @@
   .navigation__sign-out-img {
     width: 24px;
     height: 24px;
+  }
+
+  .navigation__logged-in-buttons {
+    gap: 16px;
   }
 }
