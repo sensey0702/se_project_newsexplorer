@@ -27,7 +27,6 @@
   flex-direction: column;
   gap: 25px;
   max-height: 343px;
-  overflow: scroll;
 }
 
 .about__paragraph {
@@ -55,20 +54,22 @@
   }
 
   .about__title {
-    width: 288px;
+    max-width: 288px;
+    width: 100%;
     font-size: 30px;
     line-height: 40px;
     margin: 24px 0 16px;
   }
 
   .about__paragraph-wrapper {
+    max-width: 288px;
     display: flex;
     flex-direction: column;
     gap: 25px;
   }
 
   .about__paragraph {
-    width: 288px;
+    width: 100%;
   }
 }
 
