@@ -18,6 +18,8 @@ function Header({
 
   const mainPage = location.pathname === "/";
 
+  const savedNews = location.pathname === "/saved-news";
+
   return (
     <header className={mainPage ? "header__main" : "header__saved-news"}>
       <div
@@ -29,7 +31,13 @@ function Header({
       >
         <Link to="/">
           <img
-            src={mainPage ? NewsExplorerLogoWhite : NewsExplorerLogoBlack}
+            src={
+              isMenuOpen
+                ? NewsExplorerLogoWhite
+                : savedNews
+                ? NewsExplorerLogoBlack
+                : NewsExplorerLogoWhite
+            }
             alt="News Explorer Logo"
             className="header__logo"
           />

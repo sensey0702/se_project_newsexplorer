@@ -49,15 +49,22 @@
     height: 24px;
   }
 
-  .header__wrapper.header__wrapper--nav-open {
-    padding: 16px;
-    height: 24px;
+  .header__wrapper--nav-open {
     background-color: rgba(26, 27, 34, 1);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
   }
 
   .header__logo {
     height: 24px;
     max-width: 117px;
+  }
+
+  .header__logo--saved-article-nav-open {
+    background-color: pink;
   }
 }
 
