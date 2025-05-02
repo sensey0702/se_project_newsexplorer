@@ -34,14 +34,20 @@ function Navigation({
                 className="navigation__button navigation__button--close"
               ></button>
               <Link to="/">
-                <button className="navigation__button navigation__button--home">
+                <button
+                  onClick={closeNavBar}
+                  className="navigation__button navigation__button--home"
+                >
                   Home
                 </button>
               </Link>
               {isLoggedIn ? (
                 <div className="navigation__menu-content--logged-in">
                   <Link to="/saved-news">
-                    <button className="navigation__button navigation__button--saved-articles">
+                    <button
+                      onClick={closeNavBar}
+                      className="navigation__button navigation__button--saved-articles"
+                    >
                       Saved articles
                     </button>
                   </Link>

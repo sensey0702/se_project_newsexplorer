@@ -112,16 +112,39 @@
     height: 24px;
     border: none;
     padding: 0px;
+    position: absolute;
+    right: 16px;
+    top: -41px;
   }
 
   .navigation__button--home {
-    width: 288px;
+    max-width: 288px;
     height: 56px;
     text-align: start;
   }
 
+  .navigation__menu-content--logged-in {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .navigation__button--saved-articles {
+    max-width: 288px;
+    height: 56px;
+    text-align: start;
+  }
+
+  .navigation__button--sign-out {
+    max-width: 288px;
+    width: 100%;
+    height: 56px;
+    justify-content: center;
+  }
+
   .navigation__button--sign-in {
-    width: 288px;
+    max-width: 288px;
+    width: 100%;
     height: 56px;
   }
 
