@@ -71,29 +71,34 @@
   .search__title {
     font-size: 36px;
     line-height: 40px;
-    width: 285px;
+    max-width: 288px;
+    width: 100%;
     height: 80px;
   }
   .search__description {
-    width: 288px;
+    max-width: 288px;
+    width: 100%;
     height: 72px;
     font-size: 18px;
     line-height: 24px;
     margin: 16px 0 122px 0;
   }
   .search__form {
-    width: 288px;
+    max-width: 288px;
+    width: 100%;
     height: 128px;
   }
   .search__input {
-    width: 263px;
+    max-width: 288px;
+    width: 100%;
     height: 56px;
     margin-bottom: 16px;
   }
   .search__button {
     position: unset;
-    width: 288px;
-    height: 57px;
+    max-width: 288px;
+    width: 100%;
+    height: 56px;
   }
 }
 

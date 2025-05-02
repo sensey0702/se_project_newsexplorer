@@ -12,14 +12,14 @@ function SearchForm() {
         <label htmlFor="search" className="search__label">
           <input
             id="search"
-            type="text"
+            type="search"
             className="search__input"
             placeholder="Enter topic"
           />
-          <button type="submit" className="search__button">
-            Search
-          </button>
         </label>
+        <button type="submit" className="search__button">
+          Search
+        </button>
       </form>
     </section>
   );
