@@ -94,7 +94,7 @@ function Navigation({
       </Link>
 
       {isLoggedIn ? (
-        <div className="navigation__logged-in-buttons">
+        <div className="navigation__desktop-view navigation__logged-in-buttons">
           <Link to="/saved-news">
             <button
               className={`navigation__button navigation__button--saved-articles ${

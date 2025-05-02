@@ -37,16 +37,13 @@
   }
 
   .header__saved-news {
-    font-family: "Inter";
-    font-weight: 400;
-    background-color: white;
-    max-width: 1440px;
-    height: 80px;
+    height: 56px;
   }
 
   .header__wrapper {
     padding: 16px;
     height: 24px;
+    align-items: baseline;
   }
 
   .header__wrapper--nav-open {
@@ -61,10 +58,6 @@
   .header__logo {
     height: 24px;
     max-width: 117px;
-  }
-
-  .header__logo--saved-article-nav-open {
-    background-color: pink;
   }
 }
 
