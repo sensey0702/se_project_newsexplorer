@@ -14,6 +14,8 @@ function Navigation({
   handleNavMenuClick,
   isMenuOpen,
   closeNavBar,
+  isModalOpen,
+  handleNavSignInClick,
 }) {
   const location = useLocation();
 
@@ -66,7 +68,7 @@ function Navigation({
               ) : (
                 <button
                   className="navigation__button navigation__button--sign-in"
-                  onClick={handleLoginClick}
+                  onClick={handleNavSignInClick}
                 >
                   Sign In
                 </button>
@@ -75,7 +77,11 @@ function Navigation({
           </div>
         ) : (
           <img
-            className="navigation__mobile-view-icon"
+            className={
+              isModalOpen
+                ? "navigation__mobile-view-icon--not-displayed"
+                : "navigation__mobile-view-icon"
+            }
             onClick={handleNavMenuClick}
             src={mainPage ? hamburgerMenuIcon : darkHamburgerMenuIcon}
             alt="menu icon"

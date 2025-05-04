@@ -189,8 +189,8 @@
   }
 
   .modal__close {
-    top: 20;
-    right: 0px;
+    right: 16px;
+    top: -41px;
     width: 24px;
     height: 24px;
   }

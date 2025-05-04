@@ -13,6 +13,8 @@ function Header({
   isMenuOpen,
   handleNavMenuClick,
   closeNavBar,
+  isModalOpen,
+  handleNavSignInClick,
 }) {
   const location = useLocation();
 
@@ -49,6 +51,8 @@ function Header({
           isLoggedIn={isLoggedIn}
           handleLogoutClick={handleLogoutClick}
           closeNavBar={closeNavBar}
+          isModalOpen={isModalOpen}
+          handleNavSignInClick={handleNavSignInClick}
         />
       </div>
       {mainPage && <SearchForm />}

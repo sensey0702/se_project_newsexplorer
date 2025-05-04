@@ -15,9 +15,11 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const closeActiveModal = () => {
     setActiveModal("");
+    setIsModalOpen(false);
   };
   const handleLoginClick = () => {
     setActiveModal("login");
@@ -47,16 +49,21 @@ function App() {
 
   const handleExampleLogout = () => {
     setIsLoggedIn(false);
+    setIsMenuOpen(false);
   };
 
   const handleNavMenuClick = () => {
     setIsMenuOpen(true);
-    console.log("nav bar open");
   };
 
   const handleNavCloseButton = () => {
     setIsMenuOpen(false);
-    console.log("nav bar closed");
+  };
+
+  const handleNavSignInClick = () => {
+    setActiveModal("login");
+    setIsMenuOpen(false);
+    setIsModalOpen(true);
   };
 
   useEffect(() => {
@@ -94,6 +101,8 @@ function App() {
             isLoggedIn={isLoggedIn}
             handleLogoutClick={handleExampleLogout}
             closeNavBar={handleNavCloseButton}
+            isModalOpen={isModalOpen}
+            handleNavSignInClick={handleNavSignInClick}
           ></Header>
           <Routes>
             <Route path="/" element={<Main />} />

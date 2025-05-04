@@ -148,6 +148,10 @@
     height: 56px;
   }
 
+  .navigation__mobile-view-icon--not-displayed {
+    display: none;
+  }
+
   .navigation__desktop-view {
     display: none;
   }
