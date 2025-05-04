@@ -8,7 +8,7 @@ import Main from "../Main/Main";
 import SavedNews from "../SavedNews/SavedNews";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
-import LoginSuccessModal from "../LoginSuccessModal/LoginSucessModal";
+import RegistrationSuccessModal from "../RegistrationSuccessModal/RegistrationSucessModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 
 function App() {
@@ -105,7 +105,7 @@ function App() {
             handleOrButton={handleToggleModalChange}
             handleLogin={handleExampleLogin}
           />
-          <LoginSuccessModal
+          <RegistrationSuccessModal
             activeModal={activeModal}
             onClose={closeActiveModal}
             handleSignInButton={handleSignInButtonClick}

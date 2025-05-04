@@ -1,6 +1,10 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function LoginSuccessModal({ activeModal, onClose, handleSignInButton }) {
+function RegistrationSuccessModal({
+  activeModal,
+  onClose,
+  handleSignInButton,
+}) {
   return (
     <ModalWithForm
       signInButtonText="Sign in"
@@ -13,4 +17,4 @@ function LoginSuccessModal({ activeModal, onClose, handleSignInButton }) {
   );
 }
 
-export default LoginSuccessModal;
+export default RegistrationSuccessModal;
