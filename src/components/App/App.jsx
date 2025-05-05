@@ -29,10 +29,12 @@ function App() {
     if (activeModal === "register") {
       closeActiveModal();
       setActiveModal("login");
+      setIsModalOpen(true);
     }
     if (activeModal === "login") {
       closeActiveModal();
       setActiveModal("register");
+      setIsModalOpen(true);
     }
   };
 
