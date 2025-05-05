@@ -55,7 +55,7 @@ function Header({
           handleNavSignInClick={handleNavSignInClick}
         />
       </div>
-      {mainPage && <SearchForm />}
+      {mainPage && <SearchForm isMenuOpen={isMenuOpen} />}
     </header>
   );
 }

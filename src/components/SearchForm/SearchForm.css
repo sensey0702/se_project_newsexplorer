@@ -65,9 +65,18 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 700px) {
+  .search--nav-open {
+    color: rgba(255, 255, 255, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 87px 16px 32px;
+  }
+
   .search {
     padding: 30px 16px 32px;
   }
+
   .search__title {
     font-size: 36px;
     line-height: 40px;
