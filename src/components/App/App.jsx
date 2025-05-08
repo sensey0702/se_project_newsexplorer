@@ -11,6 +11,8 @@ import LoginModal from "../LoginModal/LoginModal";
 import RegistrationSuccessModal from "../RegistrationSuccessModal/RegistrationSucessModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 
+import { getNews } from "../../utils/api";
+
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState();
@@ -105,6 +107,7 @@ function App() {
             closeNavBar={handleNavCloseButton}
             isModalOpen={isModalOpen}
             handleNavSignInClick={handleNavSignInClick}
+            getNews={getNews}
           ></Header>
           <Routes>
             <Route path="/" element={<Main />} />

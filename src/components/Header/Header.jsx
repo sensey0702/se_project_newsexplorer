@@ -15,6 +15,7 @@ function Header({
   closeNavBar,
   isModalOpen,
   handleNavSignInClick,
+  getNews,
 }) {
   const location = useLocation();
 
@@ -55,7 +56,7 @@ function Header({
           handleNavSignInClick={handleNavSignInClick}
         />
       </div>
-      {mainPage && <SearchForm isMenuOpen={isMenuOpen} />}
+      {mainPage && <SearchForm isMenuOpen={isMenuOpen} getNews={getNews} />}
     </header>
   );
 }
