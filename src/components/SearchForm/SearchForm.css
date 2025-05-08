@@ -28,7 +28,7 @@
 
 .search__form {
   width: 608px;
-  /* height: 64px; */
+  height: 64px;
   padding: 0;
   position: relative;
 }
@@ -70,8 +70,9 @@
 }
 
 .search__error {
+  font-family: "Inter";
   color: red;
-  font-size: 14px;
+  font-size: 12px;
   margin-top: 8px;
   display: block;
 }

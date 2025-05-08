@@ -10,10 +10,6 @@ function SearchForm({ isMenuOpen, getNews }) {
   //onChange
   const handleChange = (e) => {
     setSearchQuery(e.target.value);
-    if (searchQuery.length < 1) {
-      setError("Please enter a keyword");
-      return;
-    }
     setError("");
   };
 
@@ -56,13 +52,12 @@ function SearchForm({ isMenuOpen, getNews }) {
             placeholder="Enter topic"
             value={searchQuery}
             onChange={handleChange}
-            required
           />
         </label>
         <button
           type="submit"
           className="search__button"
-          disabled={!searchQuery.trim()}
+          // disabled={!searchQuery.trim()}
         >
           Search
         </button>
