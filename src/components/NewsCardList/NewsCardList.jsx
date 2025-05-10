@@ -1,10 +1,8 @@
 import "./NewsCardList.css";
 
-import { articles } from "../../utils/constants";
-
 import NewsCard from "../NewsCard/NewsCard";
 
-function NewsCardList() {
+function NewsCardList({ articles }) {
   return (
     <ul className="news-card__list">
       {articles.map((article) => {

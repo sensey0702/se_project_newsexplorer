@@ -19,6 +19,7 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPreloaderOpen, setIsPreloaderOpen] = useState(false);
+  const [articles, setArticles] = useState([]);
 
   const closeActiveModal = () => {
     setActiveModal("");
@@ -79,14 +80,23 @@ function App() {
     setIsPreloaderOpen(false);
   };
 
+  const renderArticles = (searchQuery) => {
+    return getNews(searchQuery)
+      .then((res) => {
+        setArticles(res.articles);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   const handleSearchSubmit = (searchQuery) => {
     openPreloader();
-    return getNews(searchQuery)
+    return renderArticles(searchQuery)
       .then((res) => {
         //search results
         //filter and render cards (no button if 1-3,show more if >3 & no result if 0, when array length is shown, remove button)
         console.log(res);
-        console.log("rendercards");
       })
       .catch((err) => {
         console.error(err);
@@ -139,7 +149,9 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<Main isPreloaderOpen={isPreloaderOpen} />}
+              element={
+                <Main isPreloaderOpen={isPreloaderOpen} articles={articles} />
+              }
             />
             <Route path="saved-news" element={<SavedNews />} />
           </Routes>
