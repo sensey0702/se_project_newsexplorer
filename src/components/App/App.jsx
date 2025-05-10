@@ -72,7 +72,7 @@ function App() {
   };
 
   const openPreloader = () => {
-    if (!isPreloaderOpen) setIsPreloaderOpen(true);
+    setIsPreloaderOpen(true);
   };
 
   const closePreloader = () => {
@@ -81,18 +81,18 @@ function App() {
 
   const handleSearchSubmit = (searchQuery) => {
     openPreloader();
-    console.log("preloader open");
     return getNews(searchQuery)
-      .then(() => {
-        //filter and render cards
+      .then((res) => {
+        //search results
+        //filter and render cards (no button if 1-3,show more if >3 & no result if 0, when array length is shown, remove button)
+        console.log(res);
         console.log("rendercards");
-      })
-      .finally(() => {
-        closePreloader();
-        console.log("preloader closed");
       })
       .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
+        closePreloader();
       });
   };
 

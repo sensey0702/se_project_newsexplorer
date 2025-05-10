@@ -26,7 +26,6 @@ function Navigation({
   return (
     <section className="navigation">
       <div className="navigation__mobile-view">
-        {/* conditionally render nav menu based on isMenuOpen  */}{" "}
         {isMenuOpen ? (
           <div className="navigation__menu">
             <div className="navigation__menu-content">
