@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import "./SearchForm.css";
 
-function SearchForm({ isMenuOpen, getNews }) {
+function SearchForm({ isMenuOpen, getNews, handleSearchSubmit }) {
   //useState
   const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState("");
@@ -26,7 +26,7 @@ function SearchForm({ isMenuOpen, getNews }) {
       );
       return;
     }
-    return getNews(searchQuery)
+    return handleSearchSubmit(searchQuery)
       .then(() => {
         setSearchQuery("");
       })

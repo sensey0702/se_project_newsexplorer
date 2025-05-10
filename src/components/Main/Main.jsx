@@ -2,12 +2,12 @@ import "./Main.css";
 
 import About from "../About/About";
 import NewsCardList from "../NewsCardList/NewsCardList";
-// import Preloader from "../PreLoader/PreLoader";
+import Preloader from "../PreLoader/PreLoader";
 
-function Main() {
+function Main({ isPreloaderOpen }) {
   return (
     <main>
-      {/* <Preloader /> */}
+      {isPreloaderOpen && <Preloader />}
       <NewsCardList></NewsCardList>
       <About></About>
     </main>

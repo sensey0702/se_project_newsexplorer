@@ -18,6 +18,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isPreloaderOpen, setIsPreloaderOpen] = useState(false);
 
   const closeActiveModal = () => {
     setActiveModal("");
@@ -70,6 +71,31 @@ function App() {
     setIsModalOpen(true);
   };
 
+  const openPreloader = () => {
+    if (!isPreloaderOpen) setIsPreloaderOpen(true);
+  };
+
+  const closePreloader = () => {
+    setIsPreloaderOpen(false);
+  };
+
+  const handleSearchSubmit = (searchQuery) => {
+    openPreloader();
+    console.log("preloader open");
+    return getNews(searchQuery)
+      .then(() => {
+        //filter and render cards
+        console.log("rendercards");
+      })
+      .finally(() => {
+        closePreloader();
+        console.log("preloader closed");
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   useEffect(() => {
     if (!activeModal) return;
 
@@ -108,9 +134,13 @@ function App() {
             isModalOpen={isModalOpen}
             handleNavSignInClick={handleNavSignInClick}
             getNews={getNews}
+            handleSearchSubmit={handleSearchSubmit}
           ></Header>
           <Routes>
-            <Route path="/" element={<Main />} />
+            <Route
+              path="/"
+              element={<Main isPreloaderOpen={isPreloaderOpen} />}
+            />
             <Route path="saved-news" element={<SavedNews />} />
           </Routes>
           <LoginModal
