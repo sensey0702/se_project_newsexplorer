@@ -93,7 +93,9 @@ function App() {
     return renderArticles(searchQuery)
       .catch((err) => {
         console.error("handleSearchSubmit:", err);
-        setError("Something went wrong. Please try again.");
+        setError(
+          "Sorry, something went wrong during the request. Please try again later."
+        );
         setArticles([]);
       })
       .finally(() => {
