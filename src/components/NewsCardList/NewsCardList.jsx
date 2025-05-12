@@ -19,15 +19,22 @@ function NewsCardList({ articles }) {
   // Calculates what articles to render, 3 or less or all.
   const articlesToShow =
     articles.length <= 3 ? articles : articles.slice(0, visibleCount);
+
   return (
     <div>
       <h2>Search Results</h2>
 
       <ul className="news-card__list">
-        {articles.map((article) => {
+        {articlesToShow.map((article) => {
           return <NewsCard key={article.url} article={article} />;
         })}
       </ul>
+
+      {articles.length > 3 && visibleCount < articles.length && (
+        <button className="news-card__button" onClick={handleShowMore}>
+          Show More
+        </button>
+      )}
     </div>
   );
 }

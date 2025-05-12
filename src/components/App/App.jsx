@@ -91,14 +91,6 @@ function App() {
     setError("");
     setIsSearched(true);
     return renderArticles(searchQuery)
-      .then((res) => {
-        if (!res.articles || res.articles.length === 0) {
-          setArticles([]);
-          setError("Nothing Found");
-        } else {
-          setArticles(res.articles);
-        }
-      })
       .catch((err) => {
         console.error("handleSearchSubmit:", err);
         setError("Something went wrong. Please try again.");
