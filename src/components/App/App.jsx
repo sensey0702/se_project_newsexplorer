@@ -18,8 +18,10 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isPreloaderOpen, setIsPreloaderOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [articles, setArticles] = useState([]);
+  const [error, setError] = useState("");
+  const [isSearched, setIsSearched] = useState(false);
 
   const closeActiveModal = () => {
     setActiveModal("");
@@ -72,37 +74,38 @@ function App() {
     setIsModalOpen(true);
   };
 
-  const openPreloader = () => {
-    setIsPreloaderOpen(true);
-  };
-
-  const closePreloader = () => {
-    setIsPreloaderOpen(false);
-  };
-
   const renderArticles = (searchQuery) => {
     return getNews(searchQuery)
       .then((res) => {
         setArticles(res.articles);
+        return res.articles;
       })
       .catch((err) => {
         console.error(err);
+        setArticles([]);
       });
   };
 
   const handleSearchSubmit = (searchQuery) => {
-    openPreloader();
+    setLoading(true);
+    setError("");
+    setIsSearched(true);
     return renderArticles(searchQuery)
       .then((res) => {
-        //search results
-        //filter and render cards (no button if 1-3,show more if >3 & no result if 0, when array length is shown, remove button)
-        console.log(res);
+        if (!res.articles || res.articles.length === 0) {
+          setArticles([]);
+          setError("Nothing Found");
+        } else {
+          setArticles(res.articles);
+        }
       })
       .catch((err) => {
-        console.error(err);
+        console.error("handleSearchSubmit:", err);
+        setError("Something went wrong. Please try again.");
+        setArticles([]);
       })
       .finally(() => {
-        closePreloader();
+        setLoading(false);
       });
   };
 
@@ -150,7 +153,12 @@ function App() {
             <Route
               path="/"
               element={
-                <Main isPreloaderOpen={isPreloaderOpen} articles={articles} />
+                <Main
+                  loading={loading}
+                  articles={articles}
+                  isSearched={isSearched}
+                  error={error}
+                />
               }
             />
             <Route path="saved-news" element={<SavedNews />} />

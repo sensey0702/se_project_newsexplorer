@@ -8,7 +8,7 @@ function About() {
       <img src={author} alt="photo of author" className="about__image" />
       <div className="about__wrapper">
         {" "}
-        <h1 className="about__title">About the author</h1>
+        <h2 className="about__title">About the author</h2>
         <div className="about__paragraph-wrapper">
           <p className="about__paragraph">
             Hello! My name is Sam Ensey and I am a Software Engineering student
