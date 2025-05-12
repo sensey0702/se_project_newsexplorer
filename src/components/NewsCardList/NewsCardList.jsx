@@ -21,18 +21,18 @@ function NewsCardList({ articles }) {
     articles.length <= 3 ? articles : articles.slice(0, visibleCount);
 
   return (
-    <div>
-      <h2>Search Results</h2>
+    <div className="news-card-list">
+      <h2 className="news-card-list__title">Search Results</h2>
 
-      <ul className="news-card__list">
+      <ul className="news-card-list__list">
         {articlesToShow.map((article) => {
           return <NewsCard key={article.url} article={article} />;
         })}
       </ul>
 
       {articles.length > 3 && visibleCount < articles.length && (
-        <button className="news-card__button" onClick={handleShowMore}>
-          Show More
+        <button className="news-card-list__button" onClick={handleShowMore}>
+          Show more
         </button>
       )}
     </div>
