@@ -77,8 +77,13 @@ function App() {
   const renderArticles = (searchQuery) => {
     return getNews(searchQuery)
       .then((res) => {
-        setArticles(res.articles);
-        return res.articles;
+        const updatedArticleObj = res.articles.map((article) => ({
+          ...article,
+          keyword: searchQuery,
+        }));
+
+        setArticles(updatedArticleObj);
+        return updatedArticleObj;
       })
       .catch((err) => {
         console.error(err);
