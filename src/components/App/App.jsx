@@ -160,7 +160,10 @@ function App() {
                 />
               }
             />
-            <Route path="saved-news" element={<SavedNews />} />
+            <Route
+              path="saved-news"
+              element={<SavedNews articles={articles} />}
+            />
           </Routes>
           <LoginModal
             activeModal={activeModal}

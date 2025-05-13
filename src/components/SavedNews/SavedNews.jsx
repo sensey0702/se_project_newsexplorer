@@ -3,9 +3,9 @@ import "./SavedNews.css";
 import NewsCardList from "../NewsCardList/NewsCardList";
 
 import { keywords } from "../../utils/constants";
-import { articles } from "../../utils/constants";
+// import { articles } from "../../utils/constants";
 
-function SavedNews() {
+function SavedNews({ articles }) {
   const formatKeywords = (keywords) => {
     if (!keywords || keywords.length === 0) {
       return "none";
@@ -23,7 +23,7 @@ function SavedNews() {
     <section className="saved-news">
       <h2 className="saved-news__heading">Saved articles</h2>
       <p className="saved-news__number-of-articles">
-        Elise, you have {articles.length} saved articles
+        Elise, you have saved "savedarticles.length" articles
       </p>
       <p className="saved-news__keywords-title">
         By keywords:{" "}
@@ -31,9 +31,15 @@ function SavedNews() {
           {formatKeywords(keywords)}
         </span>
       </p>
-      <NewsCardList />
+      <NewsCardList articles={articles} />
     </section>
   );
 }
 
 export default SavedNews;
+
+{
+  /* {articles.map((article) => {
+          return article.keyword;
+        })} */
+}
