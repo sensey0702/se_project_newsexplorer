@@ -3,6 +3,7 @@ import "./Main.css";
 import About from "../About/About";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import Preloader from "../PreLoader/PreLoader";
+import NothingFound from "../NothingFound/NothingFound";
 
 function Main({ loading, articles, isSearched, error }) {
   return (
@@ -15,10 +16,7 @@ function Main({ loading, articles, isSearched, error }) {
       )}
 
       {!loading && !error && isSearched && articles.length === 0 && (
-        // this will be nothing found component
-        <div className="main__nothing-found">
-          <p>Nothing Found</p>
-        </div>
+        <NothingFound />
       )}
 
       {!loading && !error && articles.length > 0 && (
