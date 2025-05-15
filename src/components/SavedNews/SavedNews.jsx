@@ -5,7 +5,7 @@ import NewsCardList from "../NewsCardList/NewsCardList";
 import { keywords } from "../../utils/constants";
 // import { articles } from "../../utils/constants";
 
-function SavedNews({ articles }) {
+function SavedNews({ savedArticles }) {
   const formatKeywords = (keywords) => {
     if (!keywords || keywords.length === 0) {
       return "none";
@@ -23,7 +23,7 @@ function SavedNews({ articles }) {
     <section className="saved-news">
       <h2 className="saved-news__heading">Saved articles</h2>
       <p className="saved-news__number-of-articles">
-        Elise, you have saved "savedarticles.length" articles
+        Elise, you have saved {savedArticles.length} articles
       </p>
       <p className="saved-news__keywords-title">
         By keywords:{" "}
@@ -31,7 +31,7 @@ function SavedNews({ articles }) {
           {formatKeywords(keywords)}
         </span>
       </p>
-      <NewsCardList articles={articles} />
+      {/* <NewsCardList articles={articles} /> */}
     </section>
   );
 }

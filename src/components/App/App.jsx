@@ -184,7 +184,7 @@ function App() {
             />
             <Route
               path="saved-news"
-              element={<SavedNews articles={articles} />}
+              element={<SavedNews savedArticles={savedArticles} />}
             />
           </Routes>
           <LoginModal
