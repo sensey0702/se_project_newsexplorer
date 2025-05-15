@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, unstable_usePrompt } from "react-router-dom";
 
 import "./App.css";
 
@@ -15,13 +15,14 @@ import { getNews } from "../../utils/api";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState("");
   const [isSearched, setIsSearched] = useState(false);
+  const [savedArticles, setSavedArticles] = useState([]);
 
   const closeActiveModal = () => {
     setActiveModal("");
@@ -108,6 +109,24 @@ function App() {
       });
   };
 
+  const handleToggleSave = (article) => {
+    const isAlreadySaved = savedArticles.some(
+      (saved) => saved.url === article.url
+    );
+
+    if (isAlreadySaved) {
+      // Unsave
+      setSavedArticles(
+        savedArticles.filter((saved) => saved.url !== article.url)
+      );
+      console.log("Article unsaved!");
+    } else {
+      // Save
+      setSavedArticles([...savedArticles, article]);
+      console.log("Article saved!");
+    }
+  };
+
   useEffect(() => {
     if (!activeModal) return;
 
@@ -157,6 +176,9 @@ function App() {
                   articles={articles}
                   isSearched={isSearched}
                   error={error}
+                  isLoggedIn={isLoggedIn}
+                  savedArticles={savedArticles}
+                  onToggleSave={handleToggleSave}
                 />
               }
             />

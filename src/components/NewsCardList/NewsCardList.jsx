@@ -4,7 +4,7 @@ import "./NewsCardList.css";
 
 import NewsCard from "../NewsCard/NewsCard";
 
-function NewsCardList({ articles }) {
+function NewsCardList({ articles, savedArticles, isLoggedIn, onToggleSave }) {
   const [visibleCount, setVisibleCount] = useState(3);
 
   // Reset visible count to 3 when new articles are loaded
@@ -26,7 +26,15 @@ function NewsCardList({ articles }) {
 
       <ul className="news-card-list__list">
         {articlesToShow.map((article) => {
-          return <NewsCard key={article.url} article={article} />;
+          return (
+            <NewsCard
+              key={article.url}
+              article={article}
+              isSaved={savedArticles.some((saved) => saved.url === article.url)}
+              onToggleSave={() => onToggleSave(article)}
+              isLoggedIn={isLoggedIn}
+            />
+          );
         })}
       </ul>
 

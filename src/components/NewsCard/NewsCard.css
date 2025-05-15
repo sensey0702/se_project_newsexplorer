@@ -4,9 +4,36 @@
   list-style: none;
   border-radius: 16px;
   background-color: rgba(255, 255, 255, 1);
+  position: relative;
 }
 
 .news-card:hover {
+  cursor: pointer;
+}
+
+.news-card__save-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 40px;
+  height: 40px;
+  border-style: none;
+}
+
+.news-card__save-button:disabled {
+  background: transparent url(../../assets/save-button-unsaved.svg) center
+    no-repeat;
+}
+
+.news-card__save-button--unsaved {
+  background: transparent url(../../assets/save-button-unsaved.svg) center
+    no-repeat;
+  cursor: pointer;
+}
+
+.news-card__save-button--saved {
+  background: transparent url(../../assets/save-button-saved.svg) center
+    no-repeat;
   cursor: pointer;
 }
 

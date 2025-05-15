@@ -1,6 +1,6 @@
 import "./NewsCard.css";
 
-function NewsCard({ article }) {
+function NewsCard({ article, onToggleSave, isLoggedIn, isSaved }) {
   const newFormattedDate = new Date(article.publishedAt).toLocaleDateString(
     "en-US",
     {
@@ -12,6 +12,23 @@ function NewsCard({ article }) {
 
   return (
     <li className="news-card">
+      {isLoggedIn ? (
+        <button
+          className={`news-card__save-button ${
+            isSaved
+              ? "news-card__save-button--saved"
+              : "news-card__save-button--unsaved"
+          }`}
+          type="button"
+          onClick={onToggleSave}
+        ></button>
+      ) : (
+        <button
+          className="news-card__save-button"
+          type="button"
+          disabled
+        ></button>
+      )}
       <a
         className="news-card__link"
         target="_blank"
@@ -23,6 +40,7 @@ function NewsCard({ article }) {
           alt={article.title}
           className="news-card__image"
         />
+
         <div className="news-card__wrapper">
           <p className="news-card__pub-date">{newFormattedDate}</p>
           <h2 className="news-card__title">{article.title}</h2>

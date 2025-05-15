@@ -5,7 +5,15 @@ import NewsCardList from "../NewsCardList/NewsCardList";
 import Preloader from "../PreLoader/PreLoader";
 import NothingFound from "../NothingFound/NothingFound";
 
-function Main({ loading, articles, isSearched, error }) {
+function Main({
+  loading,
+  articles,
+  isSearched,
+  error,
+  savedArticles,
+  isLoggedIn,
+  onToggleSave,
+}) {
   return (
     <main>
       {loading && <Preloader />}
@@ -20,7 +28,12 @@ function Main({ loading, articles, isSearched, error }) {
       )}
 
       {!loading && !error && articles.length > 0 && (
-        <NewsCardList articles={articles} />
+        <NewsCardList
+          articles={articles}
+          savedArticles={savedArticles}
+          isLoggedIn={isLoggedIn}
+          onToggleSave={onToggleSave}
+        />
       )}
 
       <About></About>
