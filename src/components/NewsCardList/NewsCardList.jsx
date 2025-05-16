@@ -5,7 +5,13 @@ import "./NewsCardList.css";
 
 import NewsCard from "../NewsCard/NewsCard";
 
-function NewsCardList({ articles, savedArticles, isLoggedIn, onToggleSave }) {
+function NewsCardList({
+  articles,
+  savedArticles,
+  isLoggedIn,
+  onToggleSave,
+  onDelete,
+}) {
   const location = useLocation();
 
   const savedNews = location.pathname === "/saved-news";
@@ -43,13 +49,12 @@ function NewsCardList({ articles, savedArticles, isLoggedIn, onToggleSave }) {
               isSaved={
                 savedNews
                   ? true
-                  : savedArticles.some((saved) => saved.url === article.url)
+                  : (savedArticles || []).some(
+                      (saved) => saved.url === article.url
+                    )
               }
-              onToggleSave={
-                savedNews
-                  ? () => onDelete(article)
-                  : () => onToggleSave(article)
-              }
+              onToggleSave={() => onToggleSave(article)}
+              onDelete={() => onDelete(article)}
               isLoggedIn={isLoggedIn}
               savedNews={savedNews}
             />

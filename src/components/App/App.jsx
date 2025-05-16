@@ -110,7 +110,7 @@ function App() {
   };
 
   const handleToggleSave = (article) => {
-    const isAlreadySaved = savedArticles.some(
+    const isAlreadySaved = (savedArticles || []).some(
       (saved) => saved.url === article.url
     );
 
@@ -193,7 +193,7 @@ function App() {
               path="saved-news"
               element={
                 <SavedNews
-                  savedArticles={savedArticles}
+                  savedArticles={savedArticles || []}
                   isLoggedIn={isLoggedIn}
                   onDelete={handleDeleteArticle}
                 />

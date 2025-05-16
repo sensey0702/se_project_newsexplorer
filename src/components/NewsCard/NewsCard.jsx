@@ -1,6 +1,13 @@
 import "./NewsCard.css";
 
-function NewsCard({ article, onToggleSave, isLoggedIn, isSaved, savedNews }) {
+function NewsCard({
+  article,
+  onToggleSave,
+  isLoggedIn,
+  isSaved,
+  savedNews,
+  onDelete,
+}) {
   const newFormattedDate = new Date(article.publishedAt).toLocaleDateString(
     "en-US",
     {
@@ -16,7 +23,7 @@ function NewsCard({ article, onToggleSave, isLoggedIn, isSaved, savedNews }) {
         <div className="news-card__saved-news">
           <p className="news-card__keyword">{article.keyword}</p>
           <button
-            onClick={onToggleSave}
+            onClick={onDelete}
             type="button"
             className="news-card__delete-button"
           ></button>

@@ -30,7 +30,7 @@ function Main({
       {!loading && !error && articles.length > 0 && (
         <NewsCardList
           articles={articles}
-          savedArticles={savedArticles}
+          savedArticles={savedArticles || []}
           isLoggedIn={isLoggedIn}
           onToggleSave={onToggleSave}
         />

@@ -23,7 +23,7 @@ function SavedNews({ savedArticles, isLoggedIn, onDelete }) {
     <section className="saved-news">
       <h2 className="saved-news__heading">Saved articles</h2>
       <p className="saved-news__number-of-articles">
-        Elise, you have {savedArticles.length} saved articles
+        Elise, you have {savedArticles?.length || 0} saved articles
       </p>
       <p className="saved-news__keywords-title">
         By keywords:{" "}
@@ -31,11 +31,13 @@ function SavedNews({ savedArticles, isLoggedIn, onDelete }) {
           {formatKeywords(keywords)}
         </span>
       </p>
-      <NewsCardList
-        articles={savedArticles}
-        isLoggedIn={isLoggedIn}
-        onToggleSave={onDelete}
-      />
+      {savedArticles?.length > 0 && (
+        <NewsCardList
+          articles={savedArticles}
+          isLoggedIn={isLoggedIn}
+          onDelete={onDelete}
+        />
+      )}
     </section>
   );
 }
