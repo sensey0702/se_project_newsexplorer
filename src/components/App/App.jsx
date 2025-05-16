@@ -127,6 +127,13 @@ function App() {
     }
   };
 
+  const handleDeleteArticle = (article) => {
+    setSavedArticles((prev) => {
+      prev.filter((saved) => saved.url !== article.url);
+    });
+    console.log("Article deleted from saved:", article.title);
+  };
+
   useEffect(() => {
     if (!activeModal) return;
 
@@ -184,7 +191,13 @@ function App() {
             />
             <Route
               path="saved-news"
-              element={<SavedNews savedArticles={savedArticles} />}
+              element={
+                <SavedNews
+                  savedArticles={savedArticles}
+                  isLoggedIn={isLoggedIn}
+                  onDelete={handleDeleteArticle}
+                />
+              }
             />
           </Routes>
           <LoginModal
