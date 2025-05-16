@@ -11,6 +11,16 @@
   cursor: pointer;
 }
 
+.news-card__delete-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  border-style: none;
+  background: transparent url(../../assets/delete-button.svg) center no-repeat;
+}
+
 .news-card__save-button {
   position: absolute;
   top: 8px;

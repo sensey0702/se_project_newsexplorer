@@ -1,6 +1,12 @@
+import { useLocation } from "react-router-dom";
+
 import "./NewsCard.css";
 
 function NewsCard({ article, onToggleSave, isLoggedIn, isSaved }) {
+  const location = useLocation();
+
+  const savedNews = location.pathname === "/saved-news";
+
   const newFormattedDate = new Date(article.publishedAt).toLocaleDateString(
     "en-US",
     {
@@ -12,7 +18,13 @@ function NewsCard({ article, onToggleSave, isLoggedIn, isSaved }) {
 
   return (
     <li className="news-card">
-      {isLoggedIn ? (
+      {isLoggedIn && savedNews && (
+        <div className="news-card__saved-news">
+          <p className="news-card__keyword">{article.keyword}</p>
+          <button className="news-card__delete-button"></button>
+        </div>
+      )}
+      {isLoggedIn && !savedNews && (
         <button
           className={`news-card__save-button ${
             isSaved
@@ -22,7 +34,8 @@ function NewsCard({ article, onToggleSave, isLoggedIn, isSaved }) {
           type="button"
           onClick={onToggleSave}
         ></button>
-      ) : (
+      )}
+      {!isLoggedIn && (
         <button
           className="news-card__save-button"
           type="button"
