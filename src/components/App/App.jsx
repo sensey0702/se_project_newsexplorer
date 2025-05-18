@@ -117,21 +117,20 @@ function App() {
     if (isAlreadySaved) {
       // Unsave
       setSavedArticles(
-        savedArticles.filter((saved) => saved.url !== article.url)
+        (savedArticles || []).filter((saved) => saved.url !== article.url)
       );
       console.log("Article unsaved!");
     } else {
       // Save
-      setSavedArticles([...savedArticles, article]);
+      setSavedArticles([...(savedArticles || []), article]);
       console.log("Article saved!");
     }
   };
 
   const handleDeleteArticle = (article) => {
     setSavedArticles((prev) => {
-      prev.filter((saved) => saved.url !== article.url);
+      return prev.filter((saved) => saved.url !== article.url);
     });
-    console.log("Article deleted from saved:", article.title);
   };
 
   useEffect(() => {
