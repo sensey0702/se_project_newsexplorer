@@ -11,14 +11,74 @@
   cursor: pointer;
 }
 
-.news-card__delete-button {
+.news-card__saved-news {
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  align-items: center;
+  justify-content: space-between;
   position: absolute;
   top: 24px;
   right: 24px;
+  left: 24px;
+  font-family: "Roboto";
+  font-weight: 500;
+  height: 40px;
+}
+
+.news-card__keyword {
+  background-color: white;
+  max-width: 96px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  padding: 8px 22px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.news-card__delete-button {
+  position: relative;
   width: 40px;
   height: 40px;
   border-style: none;
+  transition: 0.3s ease-in-out;
   background: transparent url(../../assets/delete-button.svg) center no-repeat;
+}
+
+.news-card__delete-button:hover {
+  background: transparent url(../../assets/delete-button-hover.svg) center
+    no-repeat;
+  cursor: pointer;
+}
+
+.news-card__tooltip {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  visibility: hidden;
+  transition: 0.5s ease-in-out;
+  background-color: white;
+  width: 180px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 12px;
+  line-height: 24px;
+  text-align: center;
+  padding: 8px 26px;
+  font-family: "Roboto";
+  font-weight: 500;
+  box-sizing: border-box;
+  color: black;
+}
+
+.news-card__delete-button:hover .news-card__tooltip {
+  visibility: visible;
+  transform: translateX(-45px);
+  align-items: center;
+  width: 160px;
 }
 
 .news-card__save-button {
@@ -28,17 +88,22 @@
   width: 40px;
   height: 40px;
   border-style: none;
-}
-
-.news-card__save-button:disabled {
-  background: transparent url(../../assets/save-button-unsaved.svg) center
-    no-repeat;
-}
-
-.news-card__save-button--unsaved {
   background: transparent url(../../assets/save-button-unsaved.svg) center
     no-repeat;
   cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.news-card__save-button--unsaved:hover {
+  background: transparent url(../../assets/save-button-hover.svg) center
+    no-repeat;
+}
+
+.news-card__save-button--unsaved:hover .news-card__tooltip {
+  visibility: visible;
+  transform: translateX(-45px);
+  align-items: center;
+  width: 200px;
 }
 
 .news-card__save-button--saved {

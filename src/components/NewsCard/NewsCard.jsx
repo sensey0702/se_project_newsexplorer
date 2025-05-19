@@ -26,7 +26,9 @@ function NewsCard({
             onClick={onDelete}
             type="button"
             className="news-card__delete-button"
-          ></button>
+          >
+            <span className="news-card__tooltip">Remove from saved</span>
+          </button>
         </div>
       )}
       {isLoggedIn && !savedNews && (
@@ -42,10 +44,12 @@ function NewsCard({
       )}
       {!isLoggedIn && (
         <button
-          className="news-card__save-button"
+          className="news-card__save-button news-card__save-button--unsaved"
           type="button"
           disabled
-        ></button>
+        >
+          <span className="news-card__tooltip">Sign in to save articles</span>
+        </button>
       )}
       <a
         className="news-card__link"
