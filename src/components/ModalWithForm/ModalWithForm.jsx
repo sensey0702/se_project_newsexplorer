@@ -25,7 +25,7 @@ function ModalWithForm({
           onClick={onClose}
         />
         {buttonText && (
-          <form onSubmit={onSubmit} className="modal__form">
+          <form onSubmit={onSubmit} className="modal__form" noValidate>
             {children}
             <div className="modal__button-wrapper">
               <button

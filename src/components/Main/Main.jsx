@@ -17,11 +17,6 @@ function Main({
   return (
     <main>
       {loading && <Preloader />}
-      {!loading && error && (
-        <div className="main__error-message">
-          <p>{error}</p>
-        </div>
-      )}
 
       {!loading && !error && isSearched && articles.length === 0 && (
         <NothingFound />

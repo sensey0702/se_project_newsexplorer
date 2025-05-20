@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, unstable_usePrompt } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
 
@@ -12,6 +12,8 @@ import RegistrationSuccessModal from "../RegistrationSuccessModal/RegistrationSu
 import RegisterModal from "../RegisterModal/RegisterModal";
 
 import { getNews } from "../../utils/api";
+import { mockLogin } from "../../utils/mockAuth";
+import { MOCK_USER } from "../../utils/constants";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -50,10 +52,21 @@ function App() {
     setActiveModal("login");
   };
 
-  const handleExampleLogin = (e) => {
-    e.preventDefault();
-    setIsLoggedIn(true);
-    closeActiveModal();
+  // const handleLogin = (e) => {
+  //   e.preventDefault();
+  //   setIsLoggedIn(true);
+  //   closeActiveModal();
+  // };
+  const handleLogin = async (email, password) => {
+    try {
+      const response = await mockLogin(email, password);
+      setIsLoggedIn(true);
+      closeActiveModal();
+      // save the user info in state
+      localStorage.setItem("userInfo", JSON.stringify(response.user));
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   const handleExampleLogout = () => {
@@ -203,7 +216,7 @@ function App() {
             activeModal={activeModal}
             onClose={closeActiveModal}
             handleOrButton={handleToggleModalChange}
-            handleLogin={handleExampleLogin}
+            handleLogin={handleLogin}
           />
           <RegistrationSuccessModal
             activeModal={activeModal}
