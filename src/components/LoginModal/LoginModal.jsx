@@ -77,7 +77,7 @@ function LoginModal({ activeModal, onClose, handleOrButton, handleLogin }) {
       <label
         htmlFor="login-email"
         className={`modal__label ${
-          errors.email ? "modal__label-with-errors--email" : ""
+          errors.email ? "modal__label--with-errors" : ""
         }`}
       >
         Email{" "}
@@ -95,7 +95,7 @@ function LoginModal({ activeModal, onClose, handleOrButton, handleLogin }) {
       <label
         htmlFor="login-password"
         className={`modal__label ${
-          loginError ? "modal__label-with-errors--login" : ""
+          loginError ? "modal__label--with-errors" : ""
         }`}
       >
         Password{" "}
