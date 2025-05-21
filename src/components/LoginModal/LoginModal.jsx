@@ -10,7 +10,7 @@ function LoginModal({ activeModal, onClose, handleOrButton, handleLogin }) {
 
   const [loginError, setLoginError] = useState("");
 
-  const [errors, setErrors] = useState({ email: "", password: "" });
+  const [errors, setErrors] = useState({ email: "" });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,24 +24,20 @@ function LoginModal({ activeModal, onClose, handleOrButton, handleLogin }) {
     e.preventDefault();
     setErrors({
       email: "",
-      password: "",
     });
     setLoginError("");
-    if (!data.email || !data.password) {
-      setErrors((prev) => ({
-        ...prev,
+    if (!data.email) {
+      setErrors({
         email: !data.email ? "Email is required" : "",
-        password: !data.password ? "Password is required" : "",
-      }));
+      });
       return;
     }
     const emailInput = e.target.elements.email;
 
     if (!emailInput.validity.valid) {
-      setErrors((prev) => ({
-        ...prev,
-        email: "Please enter a valid email address",
-      }));
+      setErrors({
+        email: "Invalid email address",
+      });
       return;
     }
 
@@ -58,8 +54,12 @@ function LoginModal({ activeModal, onClose, handleOrButton, handleLogin }) {
       });
   };
 
+  const isLoginFormValid =
+    data.email.trim() !== "" && data.password.trim() !== "";
+
   useEffect(() => {
-    setErrors({ email: "", password: "" });
+    setErrors({ email: "" });
+    setLoginError("");
   }, [data]);
 
   return (
@@ -72,8 +72,14 @@ function LoginModal({ activeModal, onClose, handleOrButton, handleLogin }) {
       onSubmit={handleSubmit}
       handleOrButton={handleOrButton}
       orButtonText="Sign up"
+      isLoginFormValid={isLoginFormValid}
     >
-      <label htmlFor="login-email" className="modal__label">
+      <label
+        htmlFor="login-email"
+        className={`modal__label ${
+          errors.email ? "modal__label-with-errors--email" : ""
+        }`}
+      >
         Email{" "}
         <input
           name="email"
@@ -86,7 +92,12 @@ function LoginModal({ activeModal, onClose, handleOrButton, handleLogin }) {
         />
         {errors.email && <span className="modal__error">{errors.email}</span>}
       </label>
-      <label htmlFor="login-password" className="modal__label">
+      <label
+        htmlFor="login-password"
+        className={`modal__label ${
+          loginError ? "modal__label-with-errors--login" : ""
+        }`}
+      >
         Password{" "}
         <input
           name="password"
@@ -97,9 +108,6 @@ function LoginModal({ activeModal, onClose, handleOrButton, handleLogin }) {
           value={data.password}
           onChange={handleChange}
         />
-        {errors.password && (
-          <span className="modal__error">{errors.password}</span>
-        )}
       </label>
       {loginError && (
         <span className="modal__error modal__login-error">{loginError}</span>

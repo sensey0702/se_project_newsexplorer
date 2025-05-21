@@ -74,6 +74,14 @@
   color: rgba(47, 113, 229, 1);
 }
 
+.modal__label-with-errors--email {
+  margin: 0 0 15px;
+}
+
+.modal__label-with-errors--login {
+  margin: 0 0 15px;
+}
+
 .modal__input {
   display: block;
   margin: 0px;
@@ -165,7 +173,11 @@
 .modal__error {
   color: #ff0000;
   font-size: 12px;
-  margin: 5px 0;
+  margin: 3px 0 0;
+}
+
+.modal__login-error {
+  margin: 0px;
   text-align: center;
 }
 
