@@ -8,6 +8,8 @@ function LoginModal({ activeModal, onClose, handleOrButton, handleLogin }) {
     password: "",
   });
 
+  const [loginError, setLoginError] = useState("");
+
   const [errors, setErrors] = useState({ email: "", password: "" });
 
   const handleChange = (e) => {
@@ -24,6 +26,7 @@ function LoginModal({ activeModal, onClose, handleOrButton, handleLogin }) {
       email: "",
       password: "",
     });
+    setLoginError("");
     if (!data.email || !data.password) {
       setErrors((prev) => ({
         ...prev,
@@ -42,7 +45,7 @@ function LoginModal({ activeModal, onClose, handleOrButton, handleLogin }) {
       return;
     }
 
-    return handleLogin(data.email, data.password)
+    handleLogin(data.email, data.password)
       .then(() => {
         setData({
           email: "",
@@ -50,18 +53,14 @@ function LoginModal({ activeModal, onClose, handleOrButton, handleLogin }) {
         });
       })
       .catch((err) => {
-        console.log("login error");
         console.error(err);
-        setErrors((prev) => ({
-          ...prev,
-          password: err.message || "An error occurred during login",
-        }));
+        setLoginError(err.message || "An error occurred during login");
       });
   };
 
-  // useEffect(() => {
-  //   setErrors({ email: "", password: "" });
-  // }, [data]);
+  useEffect(() => {
+    setErrors({ email: "", password: "" });
+  }, [data]);
 
   return (
     <ModalWithForm
@@ -102,6 +101,9 @@ function LoginModal({ activeModal, onClose, handleOrButton, handleLogin }) {
           <span className="modal__error">{errors.password}</span>
         )}
       </label>
+      {loginError && (
+        <span className="modal__error modal__login-error">{loginError}</span>
+      )}
     </ModalWithForm>
   );
 }

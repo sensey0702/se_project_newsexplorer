@@ -52,21 +52,19 @@ function App() {
     setActiveModal("login");
   };
 
-  // const handleLogin = (e) => {
-  //   e.preventDefault();
-  //   setIsLoggedIn(true);
-  //   closeActiveModal();
-  // };
-  const handleLogin = async (email, password) => {
-    try {
-      const response = await mockLogin(email, password);
-      setIsLoggedIn(true);
-      closeActiveModal();
-      // save the user info in state
-      localStorage.setItem("userInfo", JSON.stringify(response.user));
-    } catch (error) {
-      setError(error.message);
-    }
+  const handleLogin = (email, password) => {
+    return mockLogin(email, password)
+      .then((res) => {
+        setIsLoggedIn(true);
+        closeActiveModal();
+        // save the user info in state
+        localStorage.setItem("userInfo", JSON.stringify(res.user));
+      })
+      .catch((err) => {
+        console.error(err);
+        setError(err.message);
+        throw err;
+      });
   };
 
   const handleExampleLogout = () => {
