@@ -2,7 +2,12 @@ import { useState, useEffect } from "react";
 
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function RegisterModal({ activeModal, onClose, handleOrButton }) {
+function RegisterModal({
+  activeModal,
+  onClose,
+  handleOrButton,
+  handleRegister,
+}) {
   const [data, setData] = useState({
     email: "",
     password: "",

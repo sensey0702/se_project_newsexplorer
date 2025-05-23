@@ -89,7 +89,7 @@ function App() {
           // Close the register modal
           closeActiveModal();
           // Show the success modal
-          setActiveModal("success");
+          setActiveModal("loginSuccess");
         }
       })
       .catch((err) => {
@@ -287,6 +287,7 @@ function App() {
             handleSignInButton={handleSignInButtonClick}
           />
           <RegisterModal
+            handleRegister={handleRegister}
             activeModal={activeModal}
             onClose={closeActiveModal}
             handleOrButton={handleToggleModalChange}
