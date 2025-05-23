@@ -4,6 +4,8 @@ function checkResponse(res) {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 }
 
+// get req
+
 function getNews(searchQuery) {
   // get new date for seven days ago
   const currentDate = new Date();

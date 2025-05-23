@@ -14,6 +14,7 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 import { getNews } from "../../utils/api";
 import { mockLogin } from "../../utils/mockAuth";
 import { MOCK_USER } from "../../utils/constants";
+import { saveArticle, unsaveArticle, deleteArticle } from "../../utils/mockApi";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -126,22 +127,39 @@ function App() {
     );
 
     if (isAlreadySaved) {
-      // Unsave
-      setSavedArticles(
-        (savedArticles || []).filter((saved) => saved.url !== article.url)
-      );
-      console.log("Article unsaved!");
+      return unsaveArticle(article)
+        .then(() => {
+          setSavedArticles(
+            (savedArticles || []).filter((saved) => saved.url !== article.url)
+          );
+          console.log("Article unsaved!");
+        })
+        .catch((err) => {
+          console.error("Error unsaving article:", err.message);
+        });
     } else {
-      // Save
-      setSavedArticles([...(savedArticles || []), article]);
-      console.log("Article saved!");
+      return saveArticle(article)
+        .then(() => {
+          setSavedArticles([...(savedArticles || []), article]);
+          console.log("Article saved!");
+        })
+        .catch((err) => {
+          console.error("Error saving article:", err.message);
+        });
     }
   };
 
   const handleDeleteArticle = (article) => {
-    setSavedArticles((prev) => {
-      return prev.filter((saved) => saved.url !== article.url);
-    });
+    return deleteArticle(article)
+      .then(() => {
+        setSavedArticles((prev) => {
+          return prev.filter((saved) => saved.url !== article.url);
+        });
+        console.log("article deleted!");
+      })
+      .catch((err) => {
+        console.error("Error deleting article:", err.message);
+      });
   };
 
   useEffect(() => {
