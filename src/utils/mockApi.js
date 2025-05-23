@@ -1,5 +1,10 @@
+import { validateToken } from "./mockAuth";
+
 //MOCK post req
-function saveArticle(article) {
+function saveArticle(article, token) {
+  if (!validateToken(token)) {
+    throw new Error("Invalid token");
+  }
   return new Promise((resolve) => {
     resolve({
       success: true,
@@ -9,7 +14,10 @@ function saveArticle(article) {
 
 //MOCK  delete req
 
-function unsaveArticle(article) {
+function unsaveArticle(article, token) {
+  if (!validateToken(token)) {
+    throw new Error("Invalid token");
+  }
   return new Promise((resolve) => {
     resolve({
       success: true,
@@ -19,7 +27,10 @@ function unsaveArticle(article) {
 
 //MOCK  delete req
 
-function deleteArticle(article) {
+function deleteArticle(article, token) {
+  if (!validateToken(token)) {
+    throw new Error("Invalid token");
+  }
   return new Promise((resolve) => {
     resolve({
       success: true,

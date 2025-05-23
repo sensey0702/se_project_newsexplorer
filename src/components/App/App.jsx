@@ -13,8 +13,7 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 import { getNews } from "../../utils/api";
-import { mockLogin } from "../../utils/mockAuth";
-import { MOCK_USER } from "../../utils/constants";
+import { mockLogin, mockRegister } from "../../utils/mockAuth";
 import { saveArticle, unsaveArticle, deleteArticle } from "../../utils/mockApi";
 
 function App() {
@@ -28,6 +27,11 @@ function App() {
   const [isSearched, setIsSearched] = useState(false);
   const [savedArticles, setSavedArticles] = useState([]);
   const [currentUser, setCurrentUser] = useState();
+
+  const getAuthToken = () => {
+    const token = localStorage.getItem("jwt");
+    return token ? `Bearer ${token}` : null;
+  };
 
   const closeActiveModal = () => {
     setActiveModal("");
@@ -69,6 +73,23 @@ function App() {
           localStorage.setItem("userInfo", JSON.stringify(data.user));
 
           closeActiveModal();
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        setError(err.message);
+        throw err;
+      });
+  };
+
+  const handleRegister = (email, password, name) => {
+    return mockRegister(email, password, name)
+      .then((res) => {
+        if (res.success) {
+          // Close the register modal
+          closeActiveModal();
+          // Show the success modal
+          setActiveModal("success");
         }
       })
       .catch((err) => {
@@ -133,12 +154,13 @@ function App() {
   };
 
   const handleToggleSave = (article) => {
+    const token = getAuthToken();
     const isAlreadySaved = (savedArticles || []).some(
       (saved) => saved.url === article.url
     );
 
     if (isAlreadySaved) {
-      return unsaveArticle(article)
+      return unsaveArticle(article, token)
         .then(() => {
           setSavedArticles(
             (savedArticles || []).filter((saved) => saved.url !== article.url)
@@ -149,7 +171,7 @@ function App() {
           console.error("Error unsaving article:", err.message);
         });
     } else {
-      return saveArticle(article)
+      return saveArticle(article, token)
         .then(() => {
           setSavedArticles([...(savedArticles || []), article]);
           console.log("Article saved!");
@@ -161,7 +183,8 @@ function App() {
   };
 
   const handleDeleteArticle = (article) => {
-    return deleteArticle(article)
+    const token = getAuthToken();
+    return deleteArticle(article, token)
       .then(() => {
         setSavedArticles((prev) => {
           return prev.filter((saved) => saved.url !== article.url);
