@@ -10,6 +10,7 @@ import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import RegistrationSuccessModal from "../RegistrationSuccessModal/RegistrationSucessModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 import { getNews } from "../../utils/api";
 import { mockLogin } from "../../utils/mockAuth";
@@ -54,8 +55,8 @@ function App() {
     setActiveModal("login");
   };
 
-  const handleLogin = ({ email, password }) => {
-    return mockLogin({ email, password })
+  const handleLogin = (email, password) => {
+    return mockLogin(email, password)
       .then((data) => {
         if (data.token) {
           console.log("Token received:", data.token);
@@ -80,6 +81,7 @@ function App() {
   const handleExampleLogout = () => {
     setIsLoggedIn(false);
     setIsMenuOpen(false);
+    localStorage.clear();
   };
 
   const handleNavMenuClick = () => {
@@ -240,11 +242,13 @@ function App() {
             <Route
               path="saved-news"
               element={
-                <SavedNews
-                  savedArticles={savedArticles || []}
-                  isLoggedIn={isLoggedIn}
-                  onDelete={handleDeleteArticle}
-                />
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <SavedNews
+                    savedArticles={savedArticles || []}
+                    isLoggedIn={isLoggedIn}
+                    onDelete={handleDeleteArticle}
+                  />
+                </ProtectedRoute>
               }
             />
           </Routes>
