@@ -8,7 +8,6 @@ export const mockLogin = async (email, password) => {
 
   if (email === MOCK_USER.email && password === MOCK_USER.password) {
     const token = "mock-jwt-token-" + Math.random();
-    localStorage.setItem("jwt", token);
     return {
       success: true,
       token,

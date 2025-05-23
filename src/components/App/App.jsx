@@ -26,6 +26,7 @@ function App() {
   const [error, setError] = useState("");
   const [isSearched, setIsSearched] = useState(false);
   const [savedArticles, setSavedArticles] = useState([]);
+  const [currentUser, setCurrentUser] = useState();
 
   const closeActiveModal = () => {
     setActiveModal("");
@@ -53,13 +54,21 @@ function App() {
     setActiveModal("login");
   };
 
-  const handleLogin = (email, password) => {
-    return mockLogin(email, password)
-      .then((res) => {
-        setIsLoggedIn(true);
-        closeActiveModal();
-        // save the user info in state
-        localStorage.setItem("userInfo", JSON.stringify(res.user));
+  const handleLogin = ({ email, password }) => {
+    return mockLogin({ email, password })
+      .then((data) => {
+        if (data.token) {
+          console.log("Token received:", data.token);
+          // save the token in state
+          localStorage.setItem("jwt", data.token);
+          setIsLoggedIn(true);
+
+          // save the user info in state
+          setCurrentUser(data.user);
+          localStorage.setItem("userInfo", JSON.stringify(data.user));
+
+          closeActiveModal();
+        }
       })
       .catch((err) => {
         console.error(err);
@@ -161,6 +170,17 @@ function App() {
         console.error("Error deleting article:", err.message);
       });
   };
+
+  useEffect(() => {
+    // Check if there's a stored user and token
+    const storedUser = localStorage.getItem("userInfo");
+    const token = localStorage.getItem("jwt");
+
+    if (storedUser && token) {
+      setCurrentUser(JSON.parse(storedUser));
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   useEffect(() => {
     if (!activeModal) return;
