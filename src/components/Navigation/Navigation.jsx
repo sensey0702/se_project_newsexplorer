@@ -16,6 +16,7 @@ function Navigation({
   closeNavBar,
   isModalOpen,
   handleNavSignInClick,
+  currentUser,
 }) {
   const location = useLocation();
 
@@ -56,7 +57,7 @@ function Navigation({
                     onClick={handleLogoutClick}
                     className="navigation__button navigation__button--sign-out"
                   >
-                    Elise
+                    {currentUser?.name || "User"}
                     <img
                       className="navigation__sign-out-img"
                       src={signoutIconWhite}
@@ -115,7 +116,7 @@ function Navigation({
               savedNews ? "navigation__button--dark" : ""
             }`}
           >
-            Elise
+            {currentUser?.name || "User"}
             <img
               className="navigation__sign-out-img"
               src={mainPage ? signoutIconWhite : signoutIconBlack}

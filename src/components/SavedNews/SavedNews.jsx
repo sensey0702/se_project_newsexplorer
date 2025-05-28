@@ -2,7 +2,7 @@ import "./SavedNews.css";
 
 import NewsCardList from "../NewsCardList/NewsCardList";
 
-function SavedNews({ savedArticles, isLoggedIn, onDelete }) {
+function SavedNews({ savedArticles, isLoggedIn, onDelete, currentUser }) {
   const keywords = [
     ...new Set(savedArticles.map((article) => article.keyword)),
   ];
@@ -23,7 +23,8 @@ function SavedNews({ savedArticles, isLoggedIn, onDelete }) {
     <section className="saved-news">
       <h2 className="saved-news__heading">Saved articles</h2>
       <p className="saved-news__number-of-articles">
-        Elise, you have {savedArticles?.length || 0} saved articles
+        {currentUser?.name || "User"}, you have {savedArticles?.length || 0}{" "}
+        saved articles
       </p>
       <p className="saved-news__keywords-title">
         By keywords:{" "}

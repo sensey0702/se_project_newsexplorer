@@ -89,7 +89,7 @@ function App() {
           // Close the register modal
           closeActiveModal();
           // Show the success modal
-          setActiveModal("loginSuccess");
+          setActiveModal("registerSuccess");
         }
       })
       .catch((err) => {
@@ -246,6 +246,7 @@ function App() {
             handleNavSignInClick={handleNavSignInClick}
             getNews={getNews}
             handleSearchSubmit={handleSearchSubmit}
+            currentUser={currentUser}
           ></Header>
           <Routes>
             <Route
@@ -270,6 +271,7 @@ function App() {
                     savedArticles={savedArticles || []}
                     isLoggedIn={isLoggedIn}
                     onDelete={handleDeleteArticle}
+                    currentUser={currentUser}
                   />
                 </ProtectedRoute>
               }

@@ -10,8 +10,8 @@ function RegistrationSuccessModal({
       signInButtonText="Sign in"
       title="Registration successfully completed!"
       onClose={onClose}
-      isOpen={activeModal === "loginSuccess"}
-      name="loginSuccess"
+      isOpen={activeModal === "registerSuccess"}
+      name="registerSuccess"
       handleSignInButton={handleSignInButton}
     />
   );

@@ -17,6 +17,7 @@ function Header({
   handleNavSignInClick,
   getNews,
   handleSearchSubmit,
+  currentUser,
 }) {
   const location = useLocation();
 
@@ -47,6 +48,7 @@ function Header({
           />
         </Link>
         <Navigation
+          currentUser={currentUser}
           isMenuOpen={isMenuOpen}
           handleNavMenuClick={handleNavMenuClick}
           handleLoginClick={handleLoginClick}
