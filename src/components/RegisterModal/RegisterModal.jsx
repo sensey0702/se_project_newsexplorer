@@ -14,6 +14,9 @@ function RegisterModal({
     username: "",
   });
 
+  const [registerError, setRegisterError] = useState("");
+  const [errors, setErrors] = useState({ email: "" });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData((prevData) => ({
@@ -24,6 +27,24 @@ function RegisterModal({
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setRegisterError("");
+    setErrors({
+      email: "",
+    });
+    // adding this for error testing with test user and no functioning backend
+    if (data.email === "test@test.com") {
+      return;
+    }
+
+    const emailInput = e.target.elements.email;
+
+    if (!emailInput.validity.valid) {
+      setErrors({
+        email: "Invalid email address",
+      });
+      return;
+    }
+
     return handleRegister(data)
       .then(() => {
         setData({
@@ -34,8 +55,20 @@ function RegisterModal({
       })
       .catch((err) => {
         console.error(err);
+        setRegisterError(err.message || "An error occurred during login");
       });
   };
+
+  const isRegisterFormValid =
+    data.email.trim() !== "" &&
+    data.password.trim() !== "" &&
+    data.username.trim() !== "";
+
+  useEffect(() => {
+    setRegisterError("");
+    setErrors({ email: "" });
+  }, [data]);
+
   return (
     <ModalWithForm
       buttonText="Sign up"
@@ -46,8 +79,14 @@ function RegisterModal({
       onSubmit={handleSubmit}
       handleOrButton={handleOrButton}
       orButtonText="Sign in"
+      isRegisterFormValid={isRegisterFormValid}
     >
-      <label htmlFor="register-email" className="modal__label">
+      <label
+        htmlFor="register-email"
+        className={`modal__label ${
+          errors.email ? "modal__label--with-errors" : ""
+        }`}
+      >
         Email{" "}
         <input
           name="email"
@@ -58,6 +97,7 @@ function RegisterModal({
           value={data.email}
           onChange={handleChange}
         />
+        {errors.email && <span className="modal__error">{errors.email}</span>}
       </label>
       <label htmlFor="register-password" className="modal__label">
         Password{" "}
@@ -71,7 +111,13 @@ function RegisterModal({
           onChange={handleChange}
         />
       </label>
-      <label htmlFor="register-username" className="modal__label">
+      <label
+        htmlFor="register-username"
+        // this class is only set this way vs restisterError due to the backend not existing
+        className={`modal__label ${
+          data.email === "test@test.com" ? "modal__label--with-errors" : ""
+        }`}
+      >
         Username{" "}
         <input
           name="username"
@@ -83,6 +129,16 @@ function RegisterModal({
           onChange={handleChange}
         />
       </label>
+      {registerError && (
+        <span className="modal__error modal__register-error">
+          {registerError}
+        </span>
+      )}
+      {data.email === "test@test.com" && (
+        <span className="modal__error modal__register-error">
+          {"This email is not available"}
+        </span>
+      )}
     </ModalWithForm>
   );
 }
