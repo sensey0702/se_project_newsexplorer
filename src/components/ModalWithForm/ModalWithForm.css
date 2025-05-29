@@ -59,6 +59,7 @@
   height: 40px;
   border: none;
   padding: 0px;
+  cursor: pointer;
 }
 
 .modal__form {
