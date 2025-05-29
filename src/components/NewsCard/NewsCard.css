@@ -21,7 +21,7 @@
   top: 24px;
   right: 24px;
   left: 24px;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-weight: 500;
   height: 40px;
 }
@@ -68,7 +68,7 @@
   line-height: 24px;
   text-align: center;
   padding: 8px 26px;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-weight: 500;
   box-sizing: border-box;
   color: black;
@@ -125,7 +125,7 @@
 
 .news-card__wrapper {
   padding: 20px 24px 24px;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   color: rgba(26, 27, 34, 1);
 }
 
@@ -139,7 +139,7 @@
 
 .news-card__title {
   margin: 0 0 16px;
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", Georgia, serif;
   font-weight: 400;
   font-size: 26px;
   line-height: 30px;
@@ -167,7 +167,7 @@
 
 .news-card__author {
   margin: 0;
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", Georgia, serif;
   font-size: 16px;
   line-height: 20px;
   text-transform: uppercase;

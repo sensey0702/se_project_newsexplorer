@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   height: 80px;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   padding-left: 104px;
   padding-right: 106px;
 }

@@ -26,7 +26,7 @@
 .preloader__text {
   color: rgba(182, 188, 191, 1);
   margin: 0 auto 80px;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
