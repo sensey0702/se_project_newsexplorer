@@ -73,6 +73,8 @@ function LoginModal({ activeModal, onClose, handleOrButton, handleLogin }) {
       handleOrButton={handleOrButton}
       orButtonText="Sign up"
       isLoginFormValid={isLoginFormValid}
+      loginError={loginError}
+      emailError={errors.email}
     >
       <label
         htmlFor="login-email"
@@ -84,7 +86,9 @@ function LoginModal({ activeModal, onClose, handleOrButton, handleLogin }) {
         <input
           name="email"
           type="email"
-          className="modal__input"
+          className={`modal__input ${
+            errors.email || loginError ? "modal__input--with-errors" : ""
+          }`}
           id="login-email"
           placeholder="Enter email"
           value={data.email}
@@ -102,7 +106,9 @@ function LoginModal({ activeModal, onClose, handleOrButton, handleLogin }) {
         <input
           name="password"
           type="password"
-          className="modal__input"
+          className={`modal__input ${
+            errors.email || loginError ? "modal__input--with-errors" : ""
+          }`}
           id="login-password"
           placeholder="Enter password"
           value={data.password}

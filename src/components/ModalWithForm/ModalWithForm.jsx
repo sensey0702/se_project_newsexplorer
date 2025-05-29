@@ -14,6 +14,8 @@ function ModalWithForm({
   signInButtonText,
   isLoginFormValid,
   isRegisterFormValid,
+  loginError,
+  emailError,
 }) {
   return (
     <div
@@ -32,7 +34,9 @@ function ModalWithForm({
             <div className="modal__button-wrapper">
               <button
                 onSubmit={onSubmit}
-                className={`modal__submit modal__submit_content_type_${name}`}
+                className={`modal__submit modal__submit_content_type_${name} ${
+                  emailError || loginError ? "modal__submit--with-errors" : ""
+                }`}
                 type="submit"
                 disabled={
                   name === "login" ? !isLoginFormValid : !isRegisterFormValid
