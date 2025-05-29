@@ -92,7 +92,9 @@ function Navigation({
       <Link to="/">
         <button
           className={`navigation__desktop-view navigation__button navigation__button--home ${
-            savedNews ? "navigation__button--dark" : ""
+            savedNews
+              ? "navigation__button--dark"
+              : "navigation__button--home-active"
           }`}
         >
           Home
@@ -104,7 +106,9 @@ function Navigation({
           <Link to="/saved-news">
             <button
               className={`navigation__button navigation__button--saved-articles ${
-                savedNews ? "navigation__button--dark" : ""
+                savedNews
+                  ? "navigation__button--dark navigation__button--saved-articles-active"
+                  : ""
               }`}
             >
               Saved articles
@@ -116,7 +120,10 @@ function Navigation({
               savedNews ? "navigation__button--dark" : ""
             }`}
           >
-            {currentUser?.name || "User"}
+            <span className="navigation__username">
+              {currentUser?.name || "User"}
+            </span>
+
             <img
               className="navigation__sign-out-img"
               src={mainPage ? signoutIconWhite : signoutIconBlack}

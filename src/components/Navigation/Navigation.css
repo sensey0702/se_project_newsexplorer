@@ -23,11 +23,14 @@
 
 .navigation__button--home {
   border: none;
+  height: 80px;
+  width: 68px;
 }
 
 .navigation__button--saved-articles {
   border: none;
   width: 178px;
+  height: 80px;
 }
 
 .navigation__button--sign-out {
@@ -40,6 +43,13 @@
   display: flex;
   align-items: center;
   gap: 19px;
+}
+
+.navigation__username {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
 }
 
 .navigation__sign-out-img {
@@ -67,6 +77,16 @@
 
 .navigation__button--sign-in-dark {
   border-color: black;
+}
+
+.navigation__button--saved-articles-active {
+  border-bottom: 3px solid black;
+  padding-top: 3px;
+}
+
+.navigation__button--home-active {
+  border-bottom: 3px solid white;
+  padding-top: 3px;
 }
 
 @media screen and (min-width: 320px) and (max-width: 700px) {
@@ -123,6 +143,7 @@
     max-width: 288px;
     height: 56px;
     text-align: start;
+    border: none;
   }
 
   .navigation__menu-content--logged-in {
@@ -135,6 +156,7 @@
     max-width: 288px;
     height: 56px;
     text-align: start;
+    border: none;
   }
 
   .navigation__button--sign-out {
@@ -173,14 +195,18 @@
     width: 152px;
   }
 
+  .navigation__button--home {
+    height: 66px;
+  }
+
   .navigation__button--saved-articles {
-    border: none;
     width: 160px;
+    height: 66px;
   }
 
   .navigation__button--sign-out {
     height: 40px;
-    max-width: 100px;
+    max-width: 150px;
     padding-left: 12px;
     padding-right: 12px;
     gap: 13px;
