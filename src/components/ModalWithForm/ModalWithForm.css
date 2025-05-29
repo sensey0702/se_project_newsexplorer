@@ -202,21 +202,23 @@
 @media screen and (min-width: 320px) and (max-width: 700px) {
   .modal {
     position: fixed;
-    top: 41px;
+    top: 56px;
     left: 0;
     right: 0;
-    bottom: -24px;
+    bottom: 0;
     background-color: transparent;
   }
 
   .modal__content {
     background-color: white;
     position: relative;
-    height: 560px;
+    max-height: 1200px;
+    height: 100%;
     max-width: 430px;
     box-sizing: border-box;
     width: 100%;
-    border-radius: 20px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
     border: 1px rgba(0, 0, 0, 0.3);
     padding: 16px;
   }
