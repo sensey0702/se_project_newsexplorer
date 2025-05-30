@@ -1,9 +1,7 @@
-export const APIkey = "6dcc0121c3c643c1b0af3a32d7b66db9";
-
 export const newsApiBaseUrl =
-  process.env.NODE_ENV === "production"
-    ? "https://nomoreparties.co/news/v2/everything"
-    : "https://newsapi.org/v2/everything";
+  import.meta.env.NODE_ENV === "production"
+    ? import.meta.env.VITE_NEWS_API_URL_PROD
+    : import.meta.env.VITE_NEWS_API_URL_DEV;
 
 export const MOCK_USER = {
   email: "test@test.com",

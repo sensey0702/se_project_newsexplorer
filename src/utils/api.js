@@ -1,4 +1,4 @@
-import { newsApiBaseUrl, APIkey } from "./constants";
+import { newsApiBaseUrl } from "./constants";
 
 function checkResponse(res) {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
@@ -14,6 +14,8 @@ function getNews(searchQuery) {
 
   const formattedCurrentDate = currentDate.toISOString();
   const formattedWeekAgoDate = sevenDaysAgo.toISOString();
+
+  const APIkey = import.meta.env.VITE_NEWS_API_KEY;
 
   const url = `${newsApiBaseUrl}?q=${searchQuery}&from=${formattedWeekAgoDate}&to=${formattedCurrentDate}&pageSize=100`;
 
