@@ -17,13 +17,10 @@ function getNews(searchQuery) {
 
   const APIkey = import.meta.env.VITE_NEWS_API_KEY;
 
-  const url = `${newsApiBaseUrl}?q=${searchQuery}&from=${formattedWeekAgoDate}&to=${formattedCurrentDate}&pageSize=100`;
+  const url = `${newsApiBaseUrl}?q=${searchQuery}&from=${formattedWeekAgoDate}&to=${formattedCurrentDate}&pageSize=100&apiKey=${APIkey}`;
 
   return fetch(url, {
     method: "GET",
-    headers: {
-      "x-api-key": APIkey,
-    },
   }).then(checkResponse);
 }
 
