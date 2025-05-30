@@ -3,7 +3,7 @@ console.log("VITE_NEWS_API_URL_PROD:", import.meta.env.VITE_NEWS_API_URL_PROD);
 console.log("VITE_NEWS_API_URL_DEV:", import.meta.env.VITE_NEWS_API_URL_DEV);
 
 export const newsApiBaseUrl =
-  import.meta.env.NODE_ENV === "production"
+  window.location.hostname === "clever-sherbet-993aa0.netlify.app"
     ? import.meta.env.VITE_NEWS_API_URL_PROD
     : import.meta.env.VITE_NEWS_API_URL_DEV;
 
