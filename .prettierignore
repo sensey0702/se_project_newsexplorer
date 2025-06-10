@@ -1,0 +1,16 @@
+# Dependencies
+node_modules
+package-lock.json
+
+# Build output
+dist
+build
+
+# Environment files
+.env
+.env.*
+
+# Other
+.DS_Store
+*.log
+coverage

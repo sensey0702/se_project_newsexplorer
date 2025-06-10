@@ -1,0 +1,223 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 42px;
+}
+
+.navigation__mobile-view {
+  display: none;
+}
+
+.navigation__button {
+  padding: 0;
+  height: 24px;
+  background-color: transparent;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+}
+
+.navigation__button--home {
+  border: none;
+  height: 80px;
+  width: 68px;
+}
+
+.navigation__button--saved-articles {
+  border: none;
+  width: 178px;
+  height: 80px;
+}
+
+.navigation__button--sign-out {
+  border: 1px solid;
+  border-radius: 100px;
+  height: 48px;
+  max-width: 176px;
+  padding-left: 19px;
+  padding-right: 19px;
+  display: flex;
+  align-items: center;
+  gap: 19px;
+}
+
+.navigation__username {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+.navigation__sign-out-img {
+  width: 24px;
+  height: 24px;
+}
+
+.navigation__button--sign-in {
+  border: 1px solid;
+  border-radius: 100px;
+  height: 48px;
+  width: 176px;
+  border-color: rgba(255, 255, 255, 1);
+}
+
+.navigation__button--dark {
+  color: black;
+}
+
+.navigation__logged-in-buttons {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.navigation__button--sign-in-dark {
+  border-color: black;
+}
+
+.navigation__button--saved-articles-active {
+  border-bottom: 3px solid black;
+  padding-top: 3px;
+}
+
+.navigation__button--home-active {
+  border-bottom: 3px solid white;
+  padding-top: 3px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 700px) {
+  .navigation {
+    width: 24px;
+  }
+
+  .navigation__mobile-view {
+    height: 24px;
+    display: block;
+    cursor: pointer;
+  }
+
+  .navigation__menu {
+    position: fixed;
+    top: 57px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .navigation__menu-content {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(26, 27, 34, 1);
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    padding: 16px 16px 24px;
+    gap: 22px;
+  }
+
+  .navigation__button--close {
+    background-image: url(../../assets/close-button.svg);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    border: none;
+    padding: 0px;
+    position: absolute;
+    right: 16px;
+    top: -41px;
+  }
+
+  .navigation__button--home {
+    max-width: 288px;
+    height: 56px;
+    text-align: start;
+    border: none;
+  }
+
+  .navigation__menu-content--logged-in {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .navigation__button--saved-articles {
+    max-width: 288px;
+    height: 56px;
+    text-align: start;
+    border: none;
+  }
+
+  .navigation__button--sign-out {
+    max-width: 288px;
+    width: 100%;
+    height: 56px;
+    justify-content: center;
+  }
+
+  .navigation__button--sign-in {
+    max-width: 288px;
+    width: 100%;
+    height: 56px;
+  }
+
+  .navigation__mobile-view-icon--not-displayed {
+    display: none;
+  }
+
+  .navigation__desktop-view {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 701px) and (max-width: 1014px) {
+  .navigation {
+    gap: 16px;
+  }
+  .navigation__button {
+    height: 24px;
+    font-size: 16px;
+  }
+
+  .navigation__button--sign-in {
+    height: 40px;
+    width: 152px;
+  }
+
+  .navigation__button--home {
+    height: 66px;
+  }
+
+  .navigation__button--saved-articles {
+    width: 160px;
+    height: 66px;
+  }
+
+  .navigation__button--sign-out {
+    height: 40px;
+    max-width: 150px;
+    padding-left: 12px;
+    padding-right: 12px;
+    gap: 13px;
+  }
+
+  .navigation__sign-out-img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .navigation__logged-in-buttons {
+    gap: 16px;
+  }
+}
